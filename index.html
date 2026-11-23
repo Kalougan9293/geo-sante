@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>GEO Santé, référencement IA pour la médecine et la chirurgie esthétique</title>
-<meta name="description" content="Vos patients demandent aux IA (ChatGPT, Google AI Overviews, Gemini, Claude, Copilot, Mistral) quel praticien choisir. GEO Santé fait en sorte qu'elles recommandent votre cabinet. Un seul cabinet par spécialité et par ville.">
+<meta name="description" content="Vos patients demandent aux IA (ChatGPT, Google AI Overviews, Gemini, Claude, Copilot, Mistral) quel praticien choisir. GEO Santé mesure à quelle fréquence elles citent votre cabinet, vous dit quoi corriger et suit l'évolution.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://geo-sante.vercel.app/">
 <meta property="og:title" content="Aujourd'hui, vos patients demandent à ChatGPT.">
@@ -362,7 +362,7 @@ footer{background:var(--lavande-pale);padding:36px 0 100px;border-top:1px solid 
 .ia-n{font:700 14px var(--titre)}
 .barre{height:10px;border-radius:6px;background:#EEF0F6;overflow:hidden}
 .barre i{display:block;height:100%;width:0;border-radius:6px;transition:width 1.2s cubic-bezier(.2,.8,.2,1)}
-.vu .barre i{width:calc(var(--n) * 10%)}
+.vu .barre i{width:calc(var(--n) * 5%)}
 .ia-l b{font:800 14px var(--titre);text-align:right}
 .etat{font:700 12px var(--titre);padding:5px 8px;border-radius:999px;text-align:center}
 .rouge .barre i{background:linear-gradient(90deg,#F37A8C,#E0475F)} .rouge .etat{background:#FDE7EB;color:#C42F4B} .rouge b{color:#C42F4B}
@@ -394,6 +394,53 @@ footer{background:var(--lavande-pale);padding:36px 0 100px;border-top:1px solid 
 .offre.a .tarif-l b{color:var(--marine)}
 .cadeau{display:flex;align-items:center;gap:10px;margin-top:12px;font:700 15px var(--titre);color:var(--marine);background:linear-gradient(90deg,#E6D8FF,var(--lavande));padding:10px 14px;border-radius:12px;width:fit-content}
 .offre.b{box-shadow:0 30px 60px -30px rgba(117,80,204,.7)}
+@media (min-width:920px){.offres.trois{grid-template-columns:repeat(3,1fr);gap:20px}.offres.trois .offre{padding:32px 28px}}
+.offres.trois .tarif-l b{font-size:clamp(32px,8vw,40px)}
+.offres.trois .btn{padding:0 14px;gap:8px}
+.offre .pour.je{font:600 17px/1.4 var(--titre);color:var(--marine);font-style:italic}
+.offre.b .pour.je{color:#fff}
+.qui{align-self:flex-start;margin-top:14px;font:800 14px var(--titre);letter-spacing:.01em;padding:8px 14px;border-radius:10px}
+.qui.vous{background:var(--marine);color:#fff}
+.qui.nous{background:var(--lavande);color:var(--marine)}
+.offres.trois .offre ul{margin-top:20px}
+.offre li.plus{font:700 15px var(--titre);color:var(--violet);margin-bottom:-2px}
+.offre.b li.plus{color:var(--lavande)}
+.offres.trois .tarif s{color:var(--texte-2);text-decoration-color:#C42F4B}
+.offres.trois .offre.b .tarif s{color:#C9D0EA;text-decoration-color:#F37A8C}
+.engagement{margin-top:10px;font:700 16px/1.4 var(--titre);color:var(--marine)}
+.offre.b .engagement{color:#fff}
+@media (max-width:400px){.offres.trois .btn{font-size:14.5px;padding:0 10px}.freq{font-size:13px;padding:8px 10px}}
+.offres-pied{margin-top:24px;text-align:center;color:var(--texte-2);font-size:15px}
+.freq{display:flex;align-items:center;gap:8px;margin:-8px 0 20px;font:700 14.5px var(--titre);color:var(--violet);background:var(--lavande-pale);padding:9px 12px;border-radius:10px;width:fit-content}
+.offre.b .freq{color:var(--marine);background:var(--lavande)}
+.offres-notes{margin:32px auto 0;max-width:720px;display:flex;flex-direction:column;gap:14px;font-size:15px;color:var(--texte-2);text-align:center}
+.offres-notes .choix{list-style:none;display:flex;flex-direction:column;gap:6px;padding:16px 18px;border-radius:16px;background:var(--lavande-pale);box-shadow:inset 0 0 0 1px var(--lavande-ligne);text-align:left}
+.offres-notes .choix b{color:var(--marine)}
+.note-exclu{font-size:14px;color:var(--texte-3)}
+@media (min-width:920px){.offres-notes .choix{text-align:center}}
+.lien-detail{display:inline-flex;align-items:center;gap:8px;font:700 16px var(--titre);color:var(--violet);text-decoration:none;border-bottom:2px solid var(--lavande);padding-bottom:2px}
+.lien-detail:hover{border-color:var(--violet)}
+.methode-plus{text-align:center;margin-top:56px}
+.faq-plus{margin-top:24px}
+/* titre des offres sur une ligne (ordinateur) */
+#offres .titre{max-width:none}
+@media (min-width:920px){#offres .titre{white-space:nowrap;font-size:clamp(34px,4.2vw,50px)}}
+/* bulles « Urgent » : légère pulsation une fois la liste visible */
+.prio.urgent{position:relative}
+.vu .prio.urgent{animation:urgence 2.4s ease-in-out 1.2s infinite}
+.vu .faire-l:nth-child(3) .prio.urgent{animation-delay:1.5s}
+.vu .faire-l:nth-child(4) .prio.urgent{animation-delay:1.8s}
+@keyframes urgence{
+  0%,100%{transform:scale(1);box-shadow:0 0 0 0 rgba(224,71,95,0)}
+  15%{transform:scale(1.08);box-shadow:0 0 0 5px rgba(224,71,95,.18)}
+  30%{transform:scale(1);box-shadow:0 0 0 9px rgba(224,71,95,0)}
+}
+/* étape 2 : sources citées */
+.sources{margin-top:16px;padding-top:14px;border-top:1.5px solid var(--lavande-ligne)}
+.sources b{display:block;font:700 13px var(--titre);color:var(--texte-2);margin-bottom:8px}
+.sources span{display:inline-block;margin:0 6px 6px 0;font-size:13px;background:var(--lavande-pale);border-radius:999px;padding:5px 10px;box-shadow:inset 0 0 0 1px var(--lavande-ligne)}
+.reco-ok{flex:none;width:42px;height:42px;border-radius:12px;background:var(--violet);display:grid;place-items:center}
+.seul .reco-ok{width:36px;height:36px}
 
 /* exclusivité : équation */
 .eq-zone{display:flex;flex-direction:column;gap:14px}
@@ -479,6 +526,20 @@ footer{background:var(--marine);color:#A9B3D6;padding:16px 0;border-top:0}
   html{scroll-behavior:auto}
 }
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type": "Question", "name": "Le référencement IA (GEO), c'est quoi ?", "acceptedAnswer": {"@type": "Answer", "text": "Le référencement Google, mais pour ChatGPT, Gemini, Claude ou Mistral. Objectif : que l'IA cite votre cabinet quand un patient lui demande qui consulter."}},
+    {"@type": "Question", "name": "Je suis bien placé sur Google. Ça suffit ?", "acceptedAnswer": {"@type": "Answer", "text": "Pas forcément. Une IA croise votre site, vos avis et la presse, puis elle choisit un nom. Le diagnostic vous montre où vous en êtes."}},
+    {"@type": "Question", "name": "Mes patients viennent de loin. Ça compte aussi ?", "acceptedAnswer": {"@type": "Answer", "text": "Oui. Les 30 questions couvrent votre spécialité au-delà de votre ville, y compris les patients qui voyagent pour se faire opérer."}},
+    {"@type": "Question", "name": "Est-ce compatible avec la déontologie ?", "acceptedAnswer": {"@type": "Answer", "text": "Oui. Nous travaillons sur l'information et la cohérence de votre présence en ligne. Pas de publicité, pas de promesse de résultat médical."}},
+    {"@type": "Question", "name": "Comment le score sur 20 est-il calculé ?", "acceptedAnswer": {"@type": "Answer", "text": "Une IA ne répond jamais deux fois pareil. Chaque question est donc posée sous plusieurs formulations, plusieurs fois, à chaque IA. Le score reflète la fréquence à laquelle vous êtes cité, pas une réponse isolée."}},
+    {"@type": "Question", "name": "Pouvez-vous garantir que l'IA me citera ?", "acceptedAnswer": {"@type": "Answer", "text": "Non, et personne ne le peut honnêtement. Notre engagement porte sur la méthode et la mesure : nous travaillons votre visibilité et vous montrons, chiffres à l'appui, comment elle évolue."}}
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -535,13 +596,13 @@ footer{background:var(--marine);color:#A9B3D6;padding:16px 0;border-top:0}
           <span class="ia-statut" data-t="statut">répond</span>
         </div>
         <div class="ia-q js-q">Quel chirurgien me conseilles-tu pour une rhinoplastie naturelle à Lyon&#8239;?</div>
-        <p class="ia-intro" data-t="intro">Je vous recommande en priorité&#8239;:</p>
+        <p class="ia-intro" data-t="intro">Je vous conseille de consulter&#8239;:</p>
         <div class="reco">
-          <span class="reco-num">1</span>
+          <span class="reco-ok" aria-hidden="true"><svg width="22" height="22"><use href="#i-etoile"/></svg></span>
           <div class="reco-txt"><div class="reco-nom js-vous">Votre cabinet</div><div class="reco-det" id="heroDet">Spécialiste du nez, résultats naturels, très bien noté</div></div>
-          <span class="badge" data-t="badge">Recommandé</span>
+          <span class="badge" data-t="badge">Cité</span>
         </div>
-        <div class="avant"><span data-t="avantLbl">Avant GEO Santé&#8239;:</span> <s class="js-conc">Le cabinet d'en face</s></div>
+        <div class="avant"><span data-t="avantLbl">L'objectif, plutôt que&#8239;:</span> <s class="js-conc">Le cabinet d'en face</s></div>
       </div>
 
       <div class="hero-cta" id="ctaMobile" hidden></div>
@@ -597,7 +658,7 @@ footer{background:var(--marine);color:#A9B3D6;padding:16px 0;border-top:0}
           <div class="seul-carte">
             <div class="seul-tete"><span class="ia-pastille"><svg width="14" height="14"><use href="#i-etoile"/></svg></span><b data-t="iTitre">L'IA</b><span data-t="iTag">Aujourd'hui</span></div>
             <div class="ia-q js-q2">Qui me conseilles-tu pour une rhinoplastie à Lyon&#8239;?</div>
-            <div class="reco"><span class="reco-num">1</span><div class="reco-txt"><div class="reco-nom js-vous">Votre cabinet</div><div class="reco-det" data-t="det2">Une seule réponse</div></div></div>
+            <div class="reco"><span class="reco-ok" aria-hidden="true"><svg width="18" height="18"><use href="#i-etoile"/></svg></span><div class="reco-txt"><div class="reco-nom js-vous">Votre cabinet</div><div class="reco-det" data-t="det2">Une seule réponse</div></div></div>
           </div>
           <p class="seul-accroche" data-t="accroche">Soyez celui-là.</p>
         </div>
@@ -615,19 +676,19 @@ footer{background:var(--marine);color:#A9B3D6;padding:16px 0;border-top:0}
         <div class="rail" aria-hidden="true"><span class="rail-plein"></span></div>
         <div class="noeud" style="--i:0">
           <span class="pastille"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12Z"/><path d="M9.8 9.5a2.3 2.3 0 0 1 4.4.8c0 1.5-2.2 2-2.2 3.2M12 16.5h.01"/></svg><i>1</i></span>
-          <div class="noeud-txt"><b data-t="s1">Questions</b><p data-t="s1p">30 questions de patients</p><span class="chip" data-t="s1c">30 questions</span></div>
+          <div class="noeud-txt"><b data-t="s1">Questions</b><p data-t="s1p">30 questions, plusieurs formulations</p><span class="chip" data-t="s1c">30 questions</span></div>
         </div>
         <div class="noeud" style="--i:1">
           <span class="pastille"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg><i>2</i></span>
-          <div class="noeud-txt"><b data-t="s2">Analyse</b><p data-t="s2p">Qui chaque IA recommande</p><span class="chip" data-t="s2c">6 IA testées</span></div>
+          <div class="noeud-txt"><b data-t="s2">Analyse</b><p data-t="s2p">Qui chaque IA cite, et ses sources</p><span class="chip" data-t="s2c">6 IA testées</span></div>
         </div>
         <div class="noeud" style="--i:2">
           <span class="pastille"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16h3"/></svg><i>3</i></span>
-          <div class="noeud-txt"><b data-t="s3">Prescription</b><p data-t="s3p">Quoi corriger, en priorité</p><span class="chip" data-t="s3c">Classé par impact</span></div>
+          <div class="noeud-txt"><b data-t="s3">Prescription</b><p data-t="s3p">Quoi corriger, en priorité</p><span class="chip" data-t="s3c">Par ordre d'impact</span></div>
         </div>
         <div class="noeud" style="--i:3">
           <span class="pastille"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 11a8 8 0 1 0-2.3 5.7"/><path d="M20 4v7h-7"/></svg><i>4</i></span>
-          <div class="noeud-txt"><b data-t="s4">Suivi</b><p data-t="s4p">On corrige pour vous</p><span class="chip" data-t="s4c">Chaque semaine</span></div>
+          <div class="noeud-txt"><b data-t="s4">Suivi</b><p data-t="s4p">On remesure, on corrige</p><span class="chip" data-t="s4c">Mois ou semaine</span></div>
         </div>
       </div>
 
@@ -636,7 +697,7 @@ footer{background:var(--marine);color:#A9B3D6;padding:16px 0;border-top:0}
           <div class="etape-txt">
             <span class="etape-num" data-n="1" data-t="e1n">Étape 1</span>
             <h3 data-t="e1">Questions</h3>
-            <p data-t="e1p">Nous posons aux IA les 30 questions que vos patients se posent vraiment sur votre spécialité.</p>
+            <p data-t="e1p">Nous posons aux IA les 30 questions que vos patients se posent vraiment sur votre spécialité. Chaque question est posée sous plusieurs formulations, comme le feraient de vrais patients.</p>
           </div>
           <div class="visuel v-questions">
             <div class="q-tete"><b>30</b><span data-t="qTete">questions testées sur votre spécialité</span></div>
@@ -650,20 +711,24 @@ footer{background:var(--marine);color:#A9B3D6;padding:16px 0;border-top:0}
           <div class="etape-txt">
             <span class="etape-num" data-n="2" data-t="e2n">Étape 2</span>
             <h3 data-t="e2">Analyse</h3>
-            <p data-t="e2p">Pour chaque réponse, nous notons qui est recommandé&#8239;: vous, un concurrent, ou personne.</p>
+            <p data-t="e2p">Pour chaque réponse, nous notons si vous êtes cité, quels concurrents le sont aussi, et les sources que l'IA cite. Votre score sur 20 repose sur la fréquence de citation&#8239;: combien de fois vous êtes cité sur l'ensemble des réponses.</p>
           </div>
           <div class="visuel v-score" id="vScore">
             <div class="score-tete">
-              <div class="score-big"><b id="scoreNum">4</b><span>/10</span></div>
-              <div class="score-lib"><strong data-t="scoreLib">Votre score de visibilité IA</strong><small data-t="scoreEx">Exemple de bilan de départ</small></div>
+              <div class="score-big"><b id="scoreNum">8</b><span>/20</span></div>
+              <div class="score-lib"><strong data-t="scoreLib">Votre score de visibilité IA</strong><small data-t="scoreEx">Fréquence de citation. Exemple illustratif de bilan de départ</small></div>
             </div>
             <div class="ia-scores">
-              <div class="ia-l rouge" style="--n:1"><span class="ia-n">ChatGPT</span><span class="barre"><i></i></span><b>1/10</b><span class="etat" data-t="eAbs">Absent</span></div>
-              <div class="ia-l orange" style="--n:5"><span class="ia-n">Gemini</span><span class="barre"><i></i></span><b>5/10</b><span class="etat" data-t="eParf">Parfois</span></div>
-              <div class="ia-l orange" style="--n:3"><span class="ia-n">Google</span><span class="barre"><i></i></span><b>3/10</b><span class="etat" data-t="eParf2">Parfois</span></div>
-              <div class="ia-l rouge" style="--n:2"><span class="ia-n">Claude</span><span class="barre"><i></i></span><b>2/10</b><span class="etat" data-t="eAbs2">Absent</span></div>
-              <div class="ia-l vert" style="--n:7"><span class="ia-n">Copilot</span><span class="barre"><i></i></span><b>7/10</b><span class="etat" data-t="eReco">Recommandé</span></div>
-              <div class="ia-l orange" style="--n:4"><span class="ia-n">Mistral</span><span class="barre"><i></i></span><b>4/10</b><span class="etat" data-t="eParf3">Parfois</span></div>
+              <div class="ia-l rouge" style="--n:2"><span class="ia-n">ChatGPT</span><span class="barre"><i></i></span><b>2/20</b><span class="etat" data-t="eAbs">Rarement</span></div>
+              <div class="ia-l orange" style="--n:10"><span class="ia-n">Gemini</span><span class="barre"><i></i></span><b>10/20</b><span class="etat" data-t="eParf">Parfois</span></div>
+              <div class="ia-l orange" style="--n:6"><span class="ia-n">Google</span><span class="barre"><i></i></span><b>6/20</b><span class="etat" data-t="eParf2">Parfois</span></div>
+              <div class="ia-l rouge" style="--n:4"><span class="ia-n">Claude</span><span class="barre"><i></i></span><b>4/20</b><span class="etat" data-t="eAbs2">Rarement</span></div>
+              <div class="ia-l vert" style="--n:14"><span class="ia-n">Copilot</span><span class="barre"><i></i></span><b>14/20</b><span class="etat" data-t="eReco">Souvent</span></div>
+              <div class="ia-l orange" style="--n:8"><span class="ia-n">Mistral</span><span class="barre"><i></i></span><b>8/20</b><span class="etat" data-t="eParf3">Parfois</span></div>
+            </div>
+            <div class="sources">
+              <b data-t="srcT">Sources citées par l'IA</b>
+              <span data-t="src1">Annuaires médicaux</span><span data-t="src2">Presse santé</span><span data-t="src3">Sites de cliniques</span><span data-t="src4">Forums patients</span>
             </div>
           </div>
         </div>
@@ -677,10 +742,10 @@ footer{background:var(--marine);color:#A9B3D6;padding:16px 0;border-top:0}
           <div class="visuel v-faire" id="vFaire">
             <div class="faire-tete"><b data-t="faireT">À faire</b><span data-t="faireN">5 actions, par ordre d'impact</span></div>
             <div class="faire-l"><span class="case-c"></span><div><b data-t="a1">Réécrire vos pages d'actes</b><small data-t="a1d">Une page claire par acte&#8239;: pour qui, résultat, déroulé.</small></div><span class="prio urgent" data-t="pU1">Urgent</span></div>
+            <div class="faire-l"><span class="case-c"></span><div><b data-t="a3">Être cité par des sources fiables</b><small data-t="a3d">Presse santé, annuaires médicaux, articles d'experts.</small></div><span class="prio urgent" data-t="pU3">Urgent</span></div>
             <div class="faire-l"><span class="case-c"></span><div><b data-t="a2">Faire parler vos patients</b><small data-t="a2d">Avis récents, et une réponse à chaque avis.</small></div><span class="prio urgent" data-t="pU2">Urgent</span></div>
-            <div class="faire-l"><span class="case-c"></span><div><b data-t="a3">Être cité par des sources fiables</b><small data-t="a3d">Presse santé, annuaires médicaux, articles d'experts.</small></div><span class="prio" data-t="pI1">Important</span></div>
             <div class="faire-l"><span class="case-c"></span><div><b data-t="a4">Répondre aux vraies questions</b><small data-t="a4d">Une FAQ par acte, avec les mots de vos patients.</small></div><span class="prio" data-t="pI2">Important</span></div>
-            <div class="faire-l"><span class="case-c"></span><div><b data-t="a5">Uniformiser vos informations</b><small data-t="a5d">Même nom, actes et adresse partout sur le web.</small></div><span class="prio" data-t="pI3">Important</span></div>
+            <div class="faire-l"><span class="case-c"></span><div><b data-t="a5">Uniformiser vos informations</b><small data-t="a5d">Même nom, actes et adresse dans les annuaires et fiches en ligne.</small></div><span class="prio" data-t="pI3">Important</span></div>
           </div>
         </div>
 
@@ -688,7 +753,7 @@ footer{background:var(--marine);color:#A9B3D6;padding:16px 0;border-top:0}
           <div class="etape-txt">
             <span class="etape-num" data-n="4" data-t="e4n">Étape 4</span>
             <h3 data-t="e4">Suivi</h3>
-            <p data-t="e4p">Vous appliquez vous-même, ou nous le faisons pour vous chaque semaine&#8239;: on corrige, on remesure, on ajuste.</p>
+            <p data-t="e4p">Vous appliquez vous-même, ou nous le faisons pour vous chaque semaine. Puis nous remesurons&#8239;: mêmes questions, mêmes IA, même rythme. Vous voyez, chiffres à l'appui, si votre visibilité progresse.</p>
           </div>
           <div class="visuel" id="suivi">
             <svg class="courbe" viewBox="0 0 700 230" role="img" aria-label="Exemple de progression sur 12 semaines">
@@ -698,10 +763,11 @@ footer{background:var(--marine);color:#A9B3D6;padding:16px 0;border-top:0}
               <path class="courbe-trait" d="M0,205 C80,200 140,190 210,172 S350,126 420,100 S580,46 690,30" fill="none" stroke="#7550CC" stroke-width="5" stroke-linecap="round"/>
               <circle class="courbe-pt" cx="690" cy="30" r="9" fill="#7550CC" stroke="#fff" stroke-width="4"/>
             </svg>
-            <div class="courbe-pied"><span data-t="sem1">Semaine 1</span><span data-t="semEx">Exemple</span><span data-t="sem12">Semaine 12</span></div>
+            <div class="courbe-pied"><span data-t="sem1">Semaine 1</span><span data-t="semEx">Exemple illustratif</span><span data-t="sem12">Semaine 12</span></div>
           </div>
         </div>
       </div>
+      <p class="methode-plus"><a href="methode.html" class="lien-detail" data-t="mPlus">Comment fonctionne la méthode, en détail&#8239;? →</a></p>
     </div>
   </section>
 
@@ -710,38 +776,60 @@ footer{background:var(--marine);color:#A9B3D6;padding:16px 0;border-top:0}
     <div class="wrap">
       <span class="lancement" data-t="lancement">Offre réservée aux premiers cabinets</span>
       <h2 class="titre" data-t="fTitre">Vous appliquez, <em>ou on s'en charge.</em></h2>
-      <div class="offres">
+      <div class="offres trois">
         <div class="offre a">
-          <h3 data-t="f1">Diagnostic et prescription</h3>
-          <p class="pour" data-t="f1p">Votre équipe applique.</p>
+          <h3 data-t="f1">Diagnostic</h3>
+          <p class="pour je" data-t="f1p">«&nbsp;Je veux savoir où j'en suis.&nbsp;»</p>
+          <span class="qui vous" data-t="f1qui">Vous appliquez</span>
           <ul>
-            <li><svg width="20" height="20"><use href="#i-ok"/></svg><span data-t="f1a">Les 30 questions posées aux IA</span></li>
-            <li><svg width="20" height="20"><use href="#i-ok"/></svg><span data-t="f1b">Votre score et vos concurrents cités</span></li>
-            <li><svg width="20" height="20"><use href="#i-ok"/></svg><span data-t="f1c">La liste « À faire »</span></li>
+            <li><svg width="20" height="20"><use href="#i-ok"/></svg><span data-t="f1a">30 questions de patients posées à 6 IA, sous plusieurs formulations</span></li>
+            <li><svg width="20" height="20"><use href="#i-ok"/></svg><span data-t="f1b">Votre score sur 20, vos concurrents cités et les sources des IA</span></li>
+            <li><svg width="20" height="20"><use href="#i-ok"/></svg><span data-t="f1c">Un rapport complet et la liste «&nbsp;À&nbsp;faire&nbsp;»</span></li>
           </ul>
+          <p class="freq"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span data-t="f1freq">1 bilan complet, une seule fois</span></p>
           <div class="tarif">
-            <div class="tarif-l"><b data-t="f1prix">490&nbsp;€&nbsp;HT</b></div>
-            <p class="tarif-note sombre" data-t="f1note">Offert si vous choisissez le suivi hebdomadaire.</p>
+            <s data-t="f1barre">790&nbsp;€&nbsp;HT</s>
+            <div class="tarif-l"><b data-t="f1prix">590&nbsp;€&nbsp;HT</b><span class="pastille-prix" data-t="lanc1">Prix de lancement</span></div>
+            <p class="engagement" data-t="f1note">Paiement unique, sans engagement</p>
           </div>
-          <a href="https://wa.me/33662622886" class="btn js-wa" target="_blank" rel="noopener"><svg width="20" height="20"><use href="#i-wa"/></svg><span data-t="f1cta">Demander mon diagnostic</span></a>
+          <a href="https://wa.me/33662622886" class="btn js-wa" data-wa="diag" target="_blank" rel="noopener"><svg width="20" height="20"><use href="#i-wa"/></svg><span data-t="f1cta">Demander mon diagnostic</span></a>
+        </div>
+        <div class="offre a">
+          <h3 data-t="f3">Suivi</h3>
+          <p class="pour je" data-t="f3p">«&nbsp;Je veux suivre ma progression.&nbsp;»</p>
+          <span class="qui vous" data-t="f3qui">Vous appliquez</span>
+          <ul>
+            <li class="plus" data-t="f3plus">Tout le Diagnostic, plus&#8239;:</li>
+            <li><svg width="20" height="20"><use href="#i-ok"/></svg><span data-t="f3a">1 bilan par mois&#8239;: mêmes questions, même rythme</span></li>
+            <li><svg width="20" height="20"><use href="#i-ok"/></svg><span data-t="f3b">Un rapport comparatif&#8239;: score avant et après, questions gagnées ou perdues, mouvements des concurrents</span></li>
+            <li><svg width="20" height="20"><use href="#i-ok"/></svg><span data-t="f3c">La liste «&nbsp;À&nbsp;faire&nbsp;» mise à jour chaque mois</span></li>
+          </ul>
+          <p class="freq"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span data-t="f3freq">1 bilan par mois</span></p>
+          <div class="tarif">
+            <s data-t="f3barre">390&nbsp;€&nbsp;HT/mois</s>
+            <div class="tarif-l"><b data-t="f3prix">290&nbsp;€&nbsp;HT<small>/mois</small></b><span class="pastille-prix" data-t="lanc3">Prix de lancement</span></div>
+            <p class="engagement" data-t="f3note">3 mois minimum, soit 870&nbsp;€&nbsp;HT</p>
+          </div>
+          <a href="https://wa.me/33662622886" class="btn js-wa" data-wa="suivi" target="_blank" rel="noopener"><svg width="20" height="20"><use href="#i-wa"/></svg><span data-t="f3cta">Demander le suivi</span></a>
         </div>
         <div class="offre b">
           <span class="reco-tag" data-t="recoTag">Recommandé</span>
-          <h3 data-t="f2">Suivi hebdomadaire</h3>
-          <p class="pour" data-t="f2p">Nous faisons tout.</p>
+          <h3 data-t="f2">Accompagnement</h3>
+          <p class="pour je" data-t="f2p">«&nbsp;Je veux déléguer.&nbsp;»</p>
+          <span class="qui nous" data-t="f2qui">Nous appliquons</span>
           <ul>
-            <li><svg width="20" height="20"><use href="#i-ok-l"/></svg><span data-t="f2a">Le diagnostic et la prescription offerts</span></li>
-            <li><svg width="20" height="20"><use href="#i-ok-l"/></svg><span data-t="f2b">Les corrections faites chaque semaine</span></li>
-            <li><svg width="20" height="20"><use href="#i-ok-l"/></svg><span data-t="f2c">Les 30 questions remesurées</span></li>
-            <li><svg width="20" height="20"><use href="#i-ok-l"/></svg><span data-t="f2d">L'exclusivité sur votre ville et votre spécialité</span></li>
+            <li class="plus" data-t="f2plus">Tout le Suivi, plus&#8239;:</li>
+            <li><svg width="20" height="20"><use href="#i-ok-l"/></svg><span data-t="f2a">1 bilan par semaine</span></li>
+            <li><svg width="20" height="20"><use href="#i-ok-l"/></svg><span data-t="f2b">Les corrections faites par nos soins chaque semaine</span></li>
+            <li><svg width="20" height="20"><use href="#i-ok-l"/></svg><span data-t="f2d">L'exclusivité&#8239;: un seul cabinet accompagné par ville et spécialité</span></li>
           </ul>
+          <p class="freq"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span data-t="f2freq">4 bilans par mois + corrections</span></p>
           <div class="tarif">
-            <s data-t="f2barre">790&nbsp;€/mois</s>
-            <div class="tarif-l"><b data-t="f2prix">490&nbsp;€&nbsp;HT<small>/mois</small></b><span class="pastille-prix" data-t="lanc">Prix lancement</span></div>
-            <div class="cadeau"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="8" width="18" height="13" rx="2"/><path d="M12 8v13M3 12h18M12 8c-2-4-6-4-6-1.5S9 8 12 8Zm0 0c2-4 6-4 6-1.5S15 8 12 8Z"/></svg><span data-t="cadeau">+ Diagnostic offert (490&nbsp;€&nbsp;HT)</span></div>
-            <p class="tarif-note" data-t="f2note">5 places par spécialité en France, une seule par ville.</p>
+            <s data-t="f2barre">1&nbsp;490&nbsp;€&nbsp;HT/mois</s>
+            <div class="tarif-l"><b data-t="f2prix">990&nbsp;€&nbsp;HT<small>/mois</small></b><span class="pastille-prix" data-t="lanc">Prix de lancement</span></div>
+            <p class="engagement" data-t="f2note">3 mois minimum, soit 2&nbsp;970&nbsp;€&nbsp;HT</p>
           </div>
-          <a href="https://wa.me/33662622886" class="btn btn-violet js-wa" target="_blank" rel="noopener"><svg width="20" height="20"><use href="#i-wa"/></svg><span data-t="f2cta">Réserver mon exclusivité</span></a>
+          <a href="https://wa.me/33662622886" class="btn btn-violet js-wa" data-wa="accomp" target="_blank" rel="noopener"><svg width="20" height="20"><use href="#i-wa"/></svg><span data-t="f2cta">Demander l'accompagnement</span></a>
         </div>
       </div>
     </div>
@@ -753,7 +841,7 @@ footer{background:var(--marine);color:#A9B3D6;padding:16px 0;border-top:0}
       <div>
         <span class="ps" data-t="ps">P.-S.</span>
         <h2 data-t="exTitre">Une ville, une spécialité&#8239;: un seul client.</h2>
-        <p class="expli" id="exExpli">Par cohérence, nous ne faisons jamais recommander deux concurrents pour la même question. <b>Quand une place est prise, elle n'est plus disponible.</b></p>
+        <p class="expli" id="exExpli">Par cohérence, nous n'accompagnons jamais deux concurrents sur la même ville et la même spécialité. <b>Quand l'exclusivité est prise, elle n'est plus disponible.</b></p>
       </div>
       <div class="eq-zone">
         <div class="equation" id="equation">
@@ -763,7 +851,7 @@ footer{background:var(--marine);color:#A9B3D6;padding:16px 0;border-top:0}
           <span class="eq-op">=</span>
           <div class="eq-res"><span class="eq-cadenas"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10.5" width="16" height="10.5" rx="2.5"/><path d="M8 10.5V7.5a4 4 0 0 1 8 0v3"/></svg></span><div><b data-t="eqRes">1 seul cabinet</b><span data-t="eqRes2">accompagné par GEO Santé</span></div></div>
         </div>
-        <a href="https://wa.me/33662622886" class="btn btn-blanc js-wa" target="_blank" rel="noopener"><svg width="22" height="22"><use href="#i-wa"/></svg><span data-t="waBtn">Réserver ma place</span></a>
+        <a href="https://wa.me/33662622886" class="btn btn-blanc js-wa" target="_blank" rel="noopener"><svg width="22" height="22"><use href="#i-wa"/></svg><span data-t="waBtn">Réserver mon exclusivité</span></a>
         <div class="wa-num"><span data-t="waSans">Sur WhatsApp, sans formulaire.</span><a href="tel:+33662622886">+33 6 62 62 28 86</a></div>
       </div>
     </div>
@@ -778,6 +866,9 @@ footer{background:var(--marine);color:#A9B3D6;padding:16px 0;border-top:0}
         <details><summary><span data-t="fq2">Je suis bien placé sur Google. Ça suffit&#8239;?</span><i></i></summary><p data-t="fa2">Pas forcément. Une IA croise votre site, vos avis et la presse, puis elle choisit un nom. Le diagnostic vous montre où vous en êtes.</p></details>
         <details><summary><span data-t="fq3">Mes patients viennent de loin. Ça compte aussi&#8239;?</span><i></i></summary><p data-t="fa3">Oui. Les 30 questions couvrent votre spécialité au-delà de votre ville, y compris les patients qui voyagent pour se faire opérer.</p></details>
         <details><summary><span data-t="fq4">Est-ce compatible avec la déontologie&#8239;?</span><i></i></summary><p data-t="fa4">Oui. Nous travaillons sur l'information et la cohérence de votre présence en ligne. Pas de publicité, pas de promesse de résultat médical.</p></details>
+        <details><summary><span data-t="fq5">Comment le score sur 20 est-il calculé&#8239;?</span><i></i></summary><p data-t="fa5">Une IA ne répond jamais deux fois pareil. Chaque question est donc posée sous plusieurs formulations, plusieurs fois, à chaque IA. Le score reflète la fréquence à laquelle vous êtes cité, pas une réponse isolée.</p></details>
+        <details><summary><span data-t="fq6">Pouvez-vous garantir que l'IA me citera&#8239;?</span><i></i></summary><p data-t="fa6">Non, et personne ne le peut honnêtement. Notre engagement porte sur la méthode et la mesure&#8239;: nous travaillons votre visibilité et vous montrons, chiffres à l'appui, comment elle évolue.</p></details>
+        <p class="faq-plus"><a href="methode.html" class="lien-detail" data-t="faqPlus">Toute la méthode, étape par étape →</a></p>
       </div>
     </div>
   </section>
@@ -788,7 +879,7 @@ footer{background:var(--marine);color:#A9B3D6;padding:16px 0;border-top:0}
 <footer id="pied">
   <div class="wrap pied">
     <a href="#haut" class="pied-logo"><img src="img/logo-icone.png" alt="" width="408" height="442"><span>GEO Santé</span></a>
-    <span class="pied-liens"><a href="tel:+33662622886">+33 6 62 62 28 86</a><a href="#" data-t="ml">Mentions légales</a><span>© 2026</span></span>
+    <span class="pied-liens"><a href="mailto:contact@lockin-web.online">contact@lockin-web.online</a><a href="tel:+33662622886">+33 6 62 62 28 86</a><a href="#" data-t="ml">Mentions légales</a><span>© 2026</span></span>
   </div>
 </footer>
 
@@ -876,6 +967,52 @@ footer{background:var(--marine);color:#A9B3D6;padding:16px 0;border-top:0}
     det2:'One single answer', accroche:'Be that one.'
   });
 
+  // Nouvelle offre et méthode fondée sur la fréquence de citation (novembre 2026)
+  Object.assign(EN, {
+    intro:'I suggest you see:', badge:'Cited', avantLbl:'The goal, instead of:',
+    s1p:'30 questions, several phrasings', s2p:'Who each AI cites, and its sources', s3c:'By order of impact', s4p:'We re-measure and fix', s4c:'Monthly or weekly',
+    e1p:'We ask the AIs the 30 questions your patients really ask about your specialty. Each question is asked in several phrasings, the way real patients would.',
+    e2p:'For each answer, we record whether you are cited, which competitors are also cited, and the sources the AI cites. Your score out of 20 is based on citation frequency: how often you are cited across all answers.',
+    scoreEx:'Citation frequency. Illustrative example of a starting report', eAbs:'Rarely', eAbs2:'Rarely', eReco:'Often',
+    srcT:'Sources cited by the AI', src1:'Medical directories', src2:'Health press', src3:'Clinic websites', src4:'Patient forums',
+    pU3:'Urgent', a5d:'Same name, procedures and address across directories and online listings.',
+    e4p:'Apply it yourself, or we do it for you every week. Then we re-measure: same questions, same AIs, same schedule. You see, with figures, whether your visibility is improving.',
+    semEx:'Illustrative example', mPlus:'How does the method work, in detail? →',
+    f1:'Diagnosis', f1p:'One time. Your team implements.', f1a:'30 questions asked to 6 AIs, in several phrasings', f1b:'Your score out of 20, cited competitors and the AIs’ sources', f1c:'A full report and the to-do list',
+    f1barre:'€790', f1prix:'€590 excl. VAT', lanc1:'Launch price', f1note:'One-time payment.', f1cta:'Request my diagnosis',
+    f3:'Monitoring', f3p:'Every month. Your team implements.', f3a:'The same questions re-measured every month', f3b:'A comparative report: score before and after, questions won or lost', f3c:'Your competitors’ movements',
+    f3barre:'€390/month', f3prix:'€290 excl. VAT<small>/month</small>', lanc3:'Launch price', f3note:'One measurement per month.', f3cta:'Request monitoring',
+    f2:'Full support', f2p:'Every week. We do everything.', f2a:'Full monitoring, re-measured every week', f2b:'Fixes made by us every week', f2d:'Exclusivity: one city, one specialty, one practice supported',
+    f2barre:'€1,490/month', f2prix:'€990 excl. VAT<small>/month</small>', f2note:'3-month minimum.', fPlus:'What does each plan include? →',
+    fq5:'How is the score out of 20 calculated?', fa5:'An AI never answers the same way twice. So each question is asked in several phrasings, several times, to each AI. The score reflects how often you are cited, not a single answer.',
+    fq6:'Can you guarantee the AI will cite me?', fa6:'No, and nobody honestly can. Our commitment is the method and the measurement: we work on your visibility and show you, with figures, how it evolves.',
+    faqPlus:'The full method, step by step →', waBtn:'Reserve my exclusivity',
+    fa4:'Yes. We work on information and the consistency of your online presence. No advertising, no promise of medical results.'
+  });
+
+  // Section Offres : chaque formule = la précédente + un plus
+  const EN_CARTES = {
+    f1p:'“I want to know where I stand.”', f1qui:'You implement', f1a:'30 patient questions asked to 6 AIs, in several phrasings', f1b:'Your score out of 20, your cited competitors and the AIs’ sources', f1c:'A full report and the to-do list',
+    f1freq:'1 full report, one time only', f1note:'One-time payment, no commitment',
+    f3p:'“I want to track my progress.”', f3qui:'You implement', f3plus:'Everything in Diagnosis, plus:', f3a:'1 report per month: same questions, same schedule', f3b:'A comparative report: score before and after, questions won or lost, competitor movements', f3c:'The to-do list updated every month',
+    f3freq:'1 report per month', f3note:'3-month minimum, i.e. €870 excl. VAT',
+    f2p:'“I want to delegate.”', f2qui:'We implement', f2plus:'Everything in Monitoring, plus:', f2a:'1 report per week', f2b:'Fixes made by us every week', f2d:'Exclusivity: one practice supported per city and specialty',
+    f2freq:'4 reports per month + fixes', f2note:'3-month minimum, i.e. €2,970 excl. VAT'
+  };
+  // Section Offres : contenu détaillé des 3 formules
+  Object.assign(EN, {
+    f1p:'A snapshot of your visibility, one time. Your team implements.', f1a:'30 patient questions asked to 6 AIs, in several phrasings', f1b:'Your score out of 20, cited competitors and the sources the AIs use', f1c:'A full report and the to-do list',
+    f1freq:'1 full measurement', f1barre:'€790 excl. VAT', lanc1:'Launch price', f1note:'One-time payment.', f1cta:'Request my diagnosis',
+    f3p:'To see whether you are improving, every month. Your team implements.', f3a:'Full diagnosis included at the start', f3b:'The same questions re-measured every month', f3c:'Comparative report: score before and after, questions won or lost, competitor movements', f3d:'To-do list updated every month',
+    f3freq:'1 measurement per month', f3barre:'€390 excl. VAT/month', lanc3:'Launch price', f3note:'3-month minimum.', f3cta:'Request monitoring',
+    f2p:'We take care of everything, every week.', f2a:'Full diagnosis included at the start', f2b:'Measurement updated every week', f2c:'Fixes made by us every week', f2d:'Exclusivity: one practice supported per city and specialty',
+    f2freq:'4 measurements per month + fixes', f2barre:'€1,490 excl. VAT/month', lanc:'Launch price', f2note:'3-month minimum.', f2cta:'Request full support',
+    fLanc:'Launch price reserved for the first 5 clients, locked in for as long as you stay subscribed.',
+    fChoix1:'You want to know where you stand: <b>Diagnosis</b>.', fChoix2:'You want to track your progress and implement yourself: <b>Monitoring</b>.', fChoix3:'You want to delegate: <b>Full support</b>.',
+    fExclu:'Exclusivity (Full support only): if your city and specialty are already taken, we tell you beforehand.'
+  });
+  Object.assign(EN, EN_CARTES);
+
   const dyn = {
     fr: {
       q: perso.a && perso.v ? `Qui me conseilles-tu pour ${perso.a} à ${perso.v} ?` : perso.v ? `Quel chirurgien esthétique me conseilles-tu à ${perso.v} ?` : 'Quel chirurgien me conseilles-tu pour une rhinoplastie naturelle à Lyon ?',
@@ -884,8 +1021,8 @@ footer{background:var(--marine);color:#A9B3D6;padding:16px 0;border-top:0}
       conc: perso.c || 'Le cabinet d’en face',
       pill: `Page préparée pour ${perso.dr}${perso.v ? ', ' + perso.v : ''}`,
       expli: perso.v
-        ? `Pour ${perso.a ? perso.a + ' à ' : ''}${perso.v}, <b>la place est encore libre.</b> Quand elle est prise, elle n’est plus disponible.`
-        : 'Par cohérence, nous ne faisons jamais recommander deux concurrents pour la même question. <b>Quand une place est prise, elle n’est plus disponible.</b>',
+        ? `Pour ${perso.a ? perso.a + ' à ' : ''}${perso.v}, <b>l’exclusivité est encore libre.</b> Quand elle est prise, elle n’est plus disponible.`
+        : 'Par cohérence, nous n’accompagnons jamais deux concurrents sur la même ville et la même spécialité. <b>Quand l’exclusivité est prise, elle n’est plus disponible.</b>',
       wa: estPerso ? `Bonjour, ici ${perso.dr}${perso.v ? ' (' + perso.v + ')' : ''}. J’ai vu la page GEO Santé et je souhaite un diagnostic IA.` : 'Bonjour, je souhaite un diagnostic IA pour mon cabinet.',
       title: estPerso ? `${perso.dr}, voici ce que les IA répondent à vos patients` : 'GEO Santé, référencement IA pour la médecine et la chirurgie esthétique',
       langBtn:'EN', langLabel:'English version'
@@ -897,19 +1034,33 @@ footer{background:var(--marine);color:#A9B3D6;padding:16px 0;border-top:0}
       conc: perso.c || 'The clinic across the street',
       pill: `Prepared for ${perso.dr}${perso.v ? ', ' + perso.v : ''}`,
       expli: perso.v
-        ? `For ${perso.a ? perso.a + ' in ' : ''}${perso.v}, <b>the spot is still open.</b> Once it’s taken, it’s gone.`
-        : 'For consistency, we never get two competitors recommended for the same question. <b>Once a spot is taken, it’s gone.</b>',
+        ? `For ${perso.a ? perso.a + ' in ' : ''}${perso.v}, <b>exclusivity is still available.</b> Once it’s taken, it’s gone.`
+        : 'For consistency, we never support two competitors in the same city and specialty. <b>Once exclusivity is taken, it’s gone.</b>',
       wa: estPerso ? `Hi, this is ${perso.dr}${perso.v ? ' (' + perso.v + ')' : ''}. I saw the GEO Santé page and would like an AI diagnosis.` : 'Hi, I’d like an AI diagnosis for my practice.',
       title: estPerso ? `${perso.dr}, here’s what AI tells your patients` : 'GEO Santé, AI search optimization for aesthetic medicine',
       langBtn:'FR', langLabel:'Version française'
+    }
+  };
+  const quiFr = estPerso ? `Bonjour, ici ${perso.dr}${perso.v ? ' (' + perso.v + ')' : ''}. ` : 'Bonjour, ';
+  const quiEn = estPerso ? `Hi, this is ${perso.dr}${perso.v ? ' (' + perso.v + ')' : ''}. ` : 'Hi, ';
+  const WA_OFFRES = {
+    fr: {
+      diag: `${quiFr}je souhaite le Diagnostic GEO Santé pour mon cabinet (590 € HT, un bilan complet).`,
+      suivi: `${quiFr}je souhaite le Suivi mensuel GEO Santé pour mon cabinet (290 € HT/mois).`,
+      accomp: `${quiFr}je souhaite l’Accompagnement hebdomadaire GEO Santé pour mon cabinet (990 € HT/mois). Ma ville et ma spécialité sont-elles encore disponibles ?`
+    },
+    en: {
+      diag: `${quiEn}I’d like the GEO Santé Diagnosis for my practice (€590 excl. VAT, one full report).`,
+      suivi: `${quiEn}I’d like the GEO Santé monthly Monitoring for my practice (€290 excl. VAT/month).`,
+      accomp: `${quiEn}I’d like the GEO Santé weekly Full support for my practice (€990 excl. VAT/month). Are my city and specialty still available?`
     }
   };
   const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   // échapper les valeurs du lien avant de les insérer dans du HTML
   ['fr','en'].forEach(l => { const p2 = {dr:esc(perso.dr), v:esc(perso.v), a:esc(perso.a)};
     dyn[l].expliHtml = (l === 'fr')
-      ? (p2.v ? `Pour ${p2.a ? p2.a + ' à ' : ''}${p2.v}, <b>la place est encore libre.</b> Quand elle est prise, elle n’est plus disponible.` : dyn.fr.expli)
-      : (p2.v ? `For ${p2.a ? p2.a + ' in ' : ''}${p2.v}, <b>the spot is still open.</b> Once it’s taken, it’s gone.` : dyn.en.expli);
+      ? (p2.v ? `Pour ${p2.a ? p2.a + ' à ' : ''}${p2.v}, <b>l’exclusivité est encore libre.</b> Quand elle est prise, elle n’est plus disponible.` : dyn.fr.expli)
+      : (p2.v ? `For ${p2.a ? p2.a + ' in ' : ''}${p2.v}, <b>exclusivity is still available.</b> Once it’s taken, it’s gone.` : dyn.en.expli);
   });
 
   // Le français est dans le HTML (lisible par Google et les IA) : on le mémorise.
@@ -932,8 +1083,11 @@ footer{background:var(--marine);color:#A9B3D6;padding:16px 0;border-top:0}
     document.getElementById('exExpli').innerHTML = d.expliHtml;
     const lb = document.getElementById('lang'); lb.textContent = d.langBtn; lb.setAttribute('aria-label', d.langLabel);
     document.title = d.title;
-    const href = `https://wa.me/${WA}?text=${encodeURIComponent(d.wa)}`;
-    document.querySelectorAll('.js-wa').forEach(a => a.href = href);
+    // chaque bouton d'offre envoie son propre message ; les autres gardent le message général
+    document.querySelectorAll('.js-wa').forEach(a => {
+      const txt = (a.dataset.wa && WA_OFFRES[l][a.dataset.wa]) || d.wa;
+      a.href = `https://wa.me/${WA}?text=${encodeURIComponent(txt)}`;
+    });
   }
   appliquer(lang);
   document.getElementById('lang').addEventListener('click', () => {
@@ -1062,9 +1216,9 @@ footer{background:var(--marine);color:#A9B3D6;padding:16px 0;border-top:0}
   const cibles = document.querySelectorAll('.visuel, .case, .offre, .eq-zone, .noeud-txt');
   const scoreNum = document.getElementById('scoreNum');
   const compter = () => {
-    if (reduit) { scoreNum.textContent = '4'; return; }
+    if (reduit) { scoreNum.textContent = '8'; return; }
     let n = 0; scoreNum.textContent = '0';
-    const t = setInterval(() => { n++; scoreNum.textContent = n; if (n >= 4) clearInterval(t); }, 180);
+    const t = setInterval(() => { n++; scoreNum.textContent = n; if (n >= 8) clearInterval(t); }, 110);
   };
   if ('IntersectionObserver' in window && !reduit) {
     cibles.forEach(el => { if (!el.classList.contains('noeud-txt')) el.classList.add('revele'); });
