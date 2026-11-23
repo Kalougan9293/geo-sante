@@ -1,0 +1,1111 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GEO Santé, référencement IA pour la médecine et la chirurgie esthétique</title>
+<meta name="description" content="Vos patients demandent aux IA (ChatGPT, Google AI Overviews, Gemini, Claude, Copilot, Mistral) quel praticien choisir. GEO Santé fait en sorte qu'elles recommandent votre cabinet. Un seul cabinet par spécialité et par ville.">
+<!-- Aperçu du lien : après la mise en ligne, remplacer og.png par l'URL complète (https://votre-domaine.fr/og.png) -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Aujourd'hui, vos patients demandent à ChatGPT.">
+<meta property="og:description" content="Les IA de recherche ne donnent pas dix liens. Elles recommandent un nom. Soyez celui-là.">
+<meta property="og:image" content="og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#051A4E">
+<link rel="icon" href="img/logo-icone.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --marine:#051A4E;
+  --marine-2:#0B2766;
+  --violet:#7550CC;
+  --violet-2:#5B37B8;
+  --lavande:#B890E8;
+  --lavande-pale:#F3EEFD;
+  --lavande-ligne:#E3D8F8;
+  --blanc:#FFFFFF;
+  --texte-2:#4A5378;
+  --texte-3:#7C83A3;
+  --conc:#9AA0B8;
+  --titre:"Montserrat", system-ui, sans-serif;
+  --corps:"Inter", system-ui, sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;scroll-padding-top:68px}
+body{background:var(--blanc);color:var(--marine);font-family:var(--corps);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit}
+img{display:block;max-width:100%}
+::selection{background:var(--violet);color:#fff}
+:focus-visible{outline:3px solid var(--lavande);outline-offset:3px;border-radius:6px}
+.wrap{width:min(1160px,100% - 32px);margin-inline:auto}
+h1,h2,h3{font-family:var(--titre);letter-spacing:-.02em;line-height:1.1}
+
+/* ---------- boutons ---------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:56px;padding:0 26px;border-radius:14px;font:700 16px/1.2 var(--titre);text-decoration:none;cursor:pointer;border:0;transition:transform .2s,box-shadow .2s,background .2s;text-align:center}
+.btn:active{transform:scale(.98)}
+.btn-violet{background:linear-gradient(135deg,#8A63E0,var(--violet) 55%,var(--violet-2));color:#fff;box-shadow:0 10px 30px -10px rgba(117,80,204,.75)}
+.btn-violet:hover{box-shadow:0 14px 36px -10px rgba(117,80,204,.95)}
+.btn-blanc{background:#fff;color:var(--marine)}
+.btn-contour{background:transparent;color:inherit;box-shadow:inset 0 0 0 2px currentColor}
+.btn svg{flex:none}
+
+/* ---------- header ---------- */
+.nav{position:sticky;top:0;z-index:30;background:rgba(255,255,255,.94);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--lavande-ligne)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;height:64px;gap:12px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;flex:none}
+.logo .ico{height:44px;width:auto}
+.logo .mot{height:19px;width:auto}
+.nav-liens{display:none;gap:30px;font:600 15px var(--titre);color:var(--texte-2)}
+.nav-liens a{text-decoration:none}
+.nav-liens a:hover{color:var(--violet)}
+.nav-droite{display:flex;align-items:center;gap:8px}
+.lang{min-height:42px;min-width:42px;border-radius:12px;border:1.5px solid var(--lavande-ligne);background:#fff;color:var(--marine);font:700 13px/1 var(--titre);cursor:pointer;padding:0 10px}
+.nav .btn{min-height:42px;padding:0 16px;font-size:14px;border-radius:12px}
+@media (min-width:920px){.nav-liens{display:flex}.nav-in{height:72px}.logo .ico{height:50px}.logo .mot{height:22px}}
+@media (max-width:919px){.logo{gap:7px}.logo .ico{height:38px}.logo .mot{height:16px}.nav .btn{white-space:nowrap;font-size:13.5px;padding:0 13px}}
+@media (max-width:360px){.logo .mot{display:none}}
+
+/* ---------- hero ---------- */
+.hero{background:radial-gradient(90% 60% at 85% 10%,rgba(117,80,204,.55),transparent 60%),radial-gradient(70% 50% at 0% 100%,rgba(184,144,232,.25),transparent 60%),var(--marine);color:#fff;padding:36px 0 56px;overflow:hidden;position:relative}
+.hero-grille{display:grid;gap:30px}
+@media (min-width:920px){.hero{padding:84px 0 96px}.hero-grille{grid-template-columns:1.05fr .95fr;gap:64px;align-items:center}}
+.perso{display:none;align-items:center;gap:8px;font:600 14px var(--corps);padding:8px 14px 8px 10px;border-radius:999px;background:rgba(184,144,232,.18);color:#E6D8FF;margin-bottom:18px;width:fit-content;box-shadow:inset 0 0 0 1px rgba(184,144,232,.45)}
+.perso::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--lavande)}
+.est-perso .perso{display:inline-flex}
+.hier{display:block;font:600 clamp(18px,4.6vw,24px)/1.3 var(--titre);color:#A9B3D6;margin-bottom:10px}
+.hier span{background:linear-gradient(var(--lavande),var(--lavande)) no-repeat 0 55% / 0% 2.5px;-webkit-box-decoration-break:clone;box-decoration-break:clone;animation:barre .6s cubic-bezier(.7,0,.2,1) .35s forwards}
+@keyframes barre{to{background-size:100% 2.5px}}
+.hero h1{font-weight:800;font-size:clamp(36px,9.6vw,64px);line-height:1.04;letter-spacing:-.03em}
+.hero h1 em{font-style:normal;background:linear-gradient(90deg,#CDB3FF,var(--lavande) 50%,#9D7BF0);-webkit-background-clip:text;background-clip:text;color:transparent}
+.lead{font-size:clamp(17px,4.4vw,20px);line-height:1.5;color:#C9D0EA;margin-top:16px;max-width:34ch}
+.lead b{color:#fff;font-weight:600}
+.hero-cta{display:flex;flex-direction:column;gap:12px;margin-top:26px}
+.hero-cta .btn{width:100%}
+.hero-cta .btn-contour{color:#fff;box-shadow:inset 0 0 0 2px rgba(255,255,255,.35)}
+/* téléphone : le mail passe sous les deux boutons ; au-delà : centré sous le premier */
+.cta-col{display:contents}
+.hero-contact{order:3;display:flex;justify-content:center;align-items:center;gap:12px;font-size:14px}
+.hero-contact a{color:rgba(255,255,255,.8);text-decoration:none}
+.hero-contact a:hover{color:#fff;text-decoration:underline}
+.hero-contact .insta{display:inline-flex;color:#E1306C}
+.hero-contact .insta:hover{color:#F56FA1}
+@media (min-width:560px){.hero-cta{flex-direction:row;align-items:flex-start}.hero-cta .btn{width:auto}.cta-col{display:flex;flex-direction:column;align-items:center;gap:10px}}
+.cta-note{font-size:14px;color:#A9B3D6;margin-top:10px}
+
+/* carte réponse IA */
+.ia{background:#fff;color:var(--marine);border-radius:24px;padding:18px;box-shadow:0 30px 80px -30px rgba(0,0,0,.6),0 0 0 1px rgba(255,255,255,.08);animation:monte .6s cubic-bezier(.2,.8,.2,1) both .15s}
+@keyframes monte{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+.ia-tete{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:2px 4px 14px;border-bottom:1px solid var(--lavande-ligne)}
+.ia-qui{display:flex;align-items:center;gap:10px;font:700 15px var(--titre)}
+.ia-pastille{width:30px;height:30px;border-radius:9px;background:linear-gradient(135deg,var(--lavande),var(--violet));display:grid;place-items:center;flex:none}
+.ia-nom{display:inline-block;min-width:92px}
+.ia-nom,.ia .ia-q,#heroDet{transition:opacity .3s,transform .3s}
+.sort{opacity:0!important;transform:translateY(-6px)}
+.ia .ia-q{min-height:72px;display:flex;align-items:center}
+.ia-statut{font-size:13px;color:var(--texte-3)}
+.ia-q{margin:16px 0 0 auto;width:fit-content;max-width:92%;background:var(--lavande-pale);border-radius:16px 16px 4px 16px;padding:12px 15px;font-size:15.5px;line-height:1.45}
+.ia-intro{font-size:15px;color:var(--texte-2);margin:16px 4px 10px}
+.reco{display:flex;align-items:center;gap:14px;border-radius:16px;padding:16px;border:2px solid var(--violet);background:linear-gradient(135deg,#F7F2FF,#EFE6FF);box-shadow:0 10px 30px -14px rgba(117,80,204,.6)}
+.reco-num{flex:none;width:42px;height:42px;border-radius:12px;background:var(--violet);color:#fff;display:grid;place-items:center;font:800 20px var(--titre)}
+.reco-txt{flex:1;min-width:0}
+.reco-nom{font:800 clamp(19px,5.2vw,23px)/1.15 var(--titre);overflow-wrap:anywhere}
+.reco-det{font-size:14px;color:var(--texte-2);margin-top:3px}
+.badge{flex:none;align-self:flex-start;font:700 12px var(--titre);color:var(--violet);background:#fff;border-radius:999px;padding:5px 9px;box-shadow:inset 0 0 0 1.5px var(--lavande)}
+.avant{display:flex;align-items:center;gap:10px;margin:12px 4px 2px;font-size:14px;color:var(--texte-3);flex-wrap:wrap}
+.avant s{text-decoration-thickness:2px;text-decoration-color:#D06A86;color:var(--conc);font-weight:600}
+@media (max-width:480px){.badge{display:none}}
+
+/* bande des IA */
+.ias{background:var(--lavande-pale);padding:22px 0;border-bottom:1px solid var(--lavande-ligne)}
+.ias-in{display:flex;flex-direction:column;align-items:center;gap:12px;text-align:center}
+.ias p{font:600 14px var(--titre);color:var(--texte-2)}
+.puces{display:flex;flex-wrap:wrap;justify-content:center;gap:8px}
+.puces span{font:700 14px var(--titre);padding:8px 14px;border-radius:999px;background:#fff;box-shadow:inset 0 0 0 1px var(--lavande-ligne)}
+.puces .puce-plus{background:none;box-shadow:none;color:var(--texte-2);font-weight:600;font-style:italic;padding-left:4px}
+@media (min-width:920px){.ias-in{flex-direction:row;justify-content:center;gap:20px}}
+@media (min-width:1100px){.ias p{white-space:nowrap}.puces{flex-wrap:nowrap;gap:6px}.puces span{white-space:nowrap;padding:8px 12px}}
+
+/* ---------- sections ---------- */
+.sec{padding:72px 0}
+@media (min-width:920px){.sec{padding:120px 0}}
+.titre{font-weight:800;font-size:clamp(30px,7.6vw,52px);max-width:20ch}
+.titre em{font-style:normal;color:var(--violet)}
+.chapo{font-size:clamp(17px,4.2vw,19px);color:var(--texte-2);margin-top:14px;max-width:44ch}
+
+/* avant / aujourd'hui */
+.duel{display:grid;gap:18px;margin-top:36px}
+@media (min-width:920px){.duel{grid-template-columns:1fr 1fr;gap:28px;margin-top:56px}}
+.case{border-radius:22px;padding:22px;position:relative}
+.case-tete{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}
+.case-tete b{font:800 clamp(30px,8vw,40px)/1 var(--titre);letter-spacing:-.03em}
+.case.google .case-tete b{color:var(--texte-3)}
+.g-logo i{font-style:normal}
+.case-tete span{font:700 13px var(--titre);padding:6px 10px;border-radius:999px}
+.case.google{background:#F6F7FB;box-shadow:inset 0 0 0 1px #E6E8F0}
+.case.google .case-tete span{background:#E6E8F0;color:var(--texte-2)}
+.case.ia2{background:var(--marine);color:#fff}
+.case.ia2 .case-tete span{background:rgba(184,144,232,.2);color:#E6D8FF}
+.frappe::after{content:"";display:inline-block;width:2px;height:1.1em;margin-left:2px;vertical-align:-.15em;background:currentColor;animation:clignote 1s steps(1) infinite}
+@keyframes clignote{50%{opacity:0}}
+.recherche{display:flex;align-items:center;gap:10px;background:#fff;border-radius:999px;padding:11px 16px;font-size:15px;color:var(--texte-2);box-shadow:0 2px 8px rgba(5,26,78,.08);margin-bottom:14px}
+.res-g{padding:10px 2px;border-bottom:1px solid #E6E8F0}
+.res-g:last-of-type{border-bottom:0}
+.res-g small{display:block;font-size:12.5px;color:var(--texte-3)}
+.res-g b{display:block;font:600 15.5px/1.35 var(--corps);color:#2A44B8}
+.plus-res{font-size:13.5px;color:var(--texte-3);margin-top:8px}
+.dix,.un{display:flex;align-items:baseline;gap:12px;margin-top:14px}
+.dix-chiffre,.un-chiffre{font:800 clamp(72px,20vw,112px)/.9 var(--titre);letter-spacing:-.05em}
+.dix-chiffre{color:#C3C8DA}
+.un-chiffre{background:linear-gradient(160deg,#E2D2FF,var(--lavande) 45%,var(--violet));-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 8px 30px rgba(117,80,204,.55))}
+.un-txt{font:700 clamp(18px,4.8vw,22px)/1.2 var(--titre)}
+.dix .un-txt{color:var(--texte-2)}
+.case.ia2{display:flex;flex-direction:column}
+.case.ia2 .un{flex:1;align-items:center}
+.case-pied{margin-top:16px;font:700 16px var(--titre)}
+.case.google .case-pied{color:var(--texte-2);text-align:center}
+.case.ia2 .case-pied{color:var(--lavande)}
+.choc{font:800 clamp(30px,8vw,64px)/1.08 var(--titre);letter-spacing:-.03em;margin-top:56px;max-width:18ch}
+.choc em{font-style:normal;color:var(--violet)}
+
+/* méthode : schéma */
+.methode{background:var(--lavande-pale)}
+.parcours{position:relative;margin-top:36px;display:flex;flex-direction:column;gap:30px;--p:0}
+.rail{position:absolute;left:27px;top:28px;bottom:28px;width:3px;border-radius:3px;background:var(--lavande-ligne);overflow:hidden}
+.rail-plein{position:absolute;left:0;top:0;width:100%;height:calc(var(--p) * 100%);background:linear-gradient(180deg,var(--lavande),var(--violet));box-shadow:0 0 12px rgba(117,80,204,.6)}
+.noeud{position:relative;display:grid;grid-template-columns:56px minmax(0,1fr);gap:18px;align-items:start}
+.pastille{position:relative;z-index:1;width:56px;height:56px;border-radius:18px;background:#fff;color:var(--texte-3);display:grid;place-items:center;box-shadow:inset 0 0 0 2px var(--lavande-ligne);transition:background .5s,color .5s,box-shadow .5s,transform .5s cubic-bezier(.3,1.6,.4,1)}
+.pastille i{position:absolute;top:-7px;right:-7px;width:22px;height:22px;border-radius:50%;background:var(--lavande-ligne);color:var(--texte-2);font:800 11px/22px var(--titre);font-style:normal;text-align:center;transition:background .5s,color .5s}
+.noeud-txt{padding-top:4px;opacity:.45;transform:translateX(-6px);transition:opacity .5s,transform .5s}
+.noeud-txt b{display:block;font:800 clamp(22px,6vw,26px)/1.15 var(--titre);letter-spacing:-.02em}
+.noeud-txt p{font-size:15.5px;color:var(--texte-2);margin-top:2px}
+.chip{display:inline-block;margin-top:10px;font:700 13px var(--titre);color:var(--violet);background:#fff;padding:6px 12px;border-radius:999px;box-shadow:inset 0 0 0 1.5px var(--lavande-ligne)}
+.noeud.actif .pastille{background:linear-gradient(135deg,#9A76EA,var(--violet) 60%,var(--violet-2));color:#fff;box-shadow:0 12px 28px -8px rgba(117,80,204,.7);transform:scale(1.06)}
+.noeud.actif .pastille::after{content:"";position:absolute;inset:-6px;border-radius:22px;border:2px solid var(--lavande);opacity:0;animation:halo 2.4s ease-out infinite}
+.noeud.actif .pastille i{background:var(--marine);color:#fff}
+.noeud.actif .noeud-txt{opacity:1;transform:none}
+@keyframes halo{0%{opacity:.8;transform:scale(.9)}100%{opacity:0;transform:scale(1.25)}}
+@media (min-width:920px){
+  .parcours{flex-direction:row;gap:24px;margin-top:56px}
+  .noeud{flex:1;grid-template-columns:1fr;gap:18px}
+  .rail{left:28px;right:28px;top:27px;bottom:auto;width:auto;height:3px}
+  .rail-plein{height:100%;width:calc(var(--p) * 100%);background:linear-gradient(90deg,var(--lavande),var(--violet))}
+  .noeud-txt{transform:translateY(8px)}
+}
+
+/* méthode : zigzag */
+.etapes{display:flex;flex-direction:column;gap:56px;margin-top:64px}
+@media (min-width:920px){.etapes{gap:96px;margin-top:110px}}
+.etape{display:grid;gap:22px;align-items:center}
+@media (min-width:920px){.etape{grid-template-columns:1fr 1fr;gap:72px}.etape.inv .etape-txt{order:2}}
+.etape-num{font:800 14px var(--titre);color:var(--violet);display:inline-flex;align-items:center;gap:10px}
+.etape-num::before{content:attr(data-n);width:30px;height:30px;border-radius:9px;background:var(--violet);color:#fff;display:grid;place-items:center;font-size:15px}
+.etape h3{font-weight:800;font-size:clamp(30px,8vw,48px);margin-top:10px;letter-spacing:-.03em}
+.etape-txt p{font-size:17px;color:var(--texte-2);margin-top:10px;max-width:40ch}
+.visuel{background:#fff;border-radius:22px;padding:20px;box-shadow:0 20px 50px -30px rgba(5,26,78,.35),0 0 0 1px var(--lavande-ligne)}
+
+.qs{display:flex;flex-direction:column;gap:9px}
+.qs span{align-self:flex-start;background:var(--lavande-pale);border-radius:14px 14px 14px 4px;padding:10px 14px;font-size:15px;max-width:95%}
+.qs span:nth-child(even){align-self:flex-end;border-radius:14px 14px 4px 14px}
+.qs .plus{align-self:center!important;background:var(--marine)!important;color:#fff;font:700 14px var(--titre);border-radius:999px!important;padding:8px 16px}
+
+.bilan table{width:100%;border-collapse:collapse}
+.bilan th{font:700 12.5px var(--titre);color:var(--texte-3);text-align:center;padding:0 4px 10px}
+.bilan th:first-child{text-align:left;padding-left:0}
+.bilan td{border-top:1px solid var(--lavande-ligne);padding:11px 4px;text-align:center;font-size:14.5px}
+.bilan td:first-child{text-align:left;padding-left:0}
+.pt{display:inline-block;width:14px;height:14px;border-radius:50%;vertical-align:middle}
+.pt.v{background:var(--violet);box-shadow:0 0 0 4px rgba(117,80,204,.15)}
+.pt.c{box-shadow:inset 0 0 0 2.5px #D06A86}
+.pt.r{width:14px;height:3px;border-radius:2px;background:var(--conc)}
+.leg{display:flex;flex-wrap:wrap;gap:6px 16px;margin-top:14px;font-size:13px;color:var(--texte-2)}
+.leg span{display:inline-flex;align-items:center;gap:7px}
+.score{display:flex;align-items:center;gap:14px;margin-top:16px;padding-top:16px;border-top:2px solid var(--marine)}
+.score b{font:800 40px/1 var(--titre);color:var(--violet)}
+.score span{font-size:14px;color:var(--texte-2);line-height:1.35}
+
+.ordo-l{display:grid;grid-template-columns:auto 1fr auto;gap:12px;align-items:center;padding:12px 0;border-top:1px solid var(--lavande-ligne);font-size:15px}
+.ordo-l:first-child{border-top:0;padding-top:2px}
+.rx{font:800 16px var(--titre);color:var(--violet)}
+.prio{font:700 12px var(--titre);padding:5px 9px;border-radius:999px;background:var(--lavande-pale);color:var(--violet);white-space:nowrap}
+
+.courbe{width:100%;height:auto;display:block}
+.courbe-trait{stroke-dasharray:900;stroke-dashoffset:900;transition:stroke-dashoffset 1.8s cubic-bezier(.6,0,.2,1)}
+.courbe-aire,.courbe-pt{opacity:0;transition:opacity 1s .8s}
+.vu .courbe-trait{stroke-dashoffset:0}
+.vu .courbe-aire,.vu .courbe-pt{opacity:1}
+.courbe-pied{display:flex;justify-content:space-between;font-size:13px;color:var(--texte-3);margin-top:8px}
+
+/* formules */
+.offres{display:grid;gap:18px;margin-top:36px}
+@media (min-width:920px){.offres{grid-template-columns:1fr 1fr;gap:28px;margin-top:56px}}
+.offre{border-radius:24px;padding:28px 24px;display:flex;flex-direction:column}
+@media (min-width:920px){.offre{padding:40px}}
+.offre.a{background:#fff;box-shadow:inset 0 0 0 2px var(--lavande-ligne)}
+.offre.b{background:var(--marine);color:#fff;position:relative;overflow:hidden}
+.offre.b::before{content:"";position:absolute;inset:0;background:radial-gradient(80% 60% at 100% 0%,rgba(117,80,204,.5),transparent 60%);pointer-events:none}
+.offre > *{position:relative}
+.offre h3{font-weight:800;font-size:clamp(26px,6.4vw,34px)}
+.offre .pour{margin-top:6px;color:var(--texte-2)}
+.offre.b .pour{color:#C9D0EA}
+.offre ul{list-style:none;display:flex;flex-direction:column;gap:12px;margin:24px 0 28px;flex:1}
+.offre li{display:flex;gap:12px;align-items:flex-start}
+.offre li svg{flex:none;margin-top:3px}
+.lancement{display:inline-flex;align-items:center;gap:8px;font:700 14px var(--titre);color:var(--violet);background:var(--lavande-pale);padding:8px 14px;border-radius:999px;margin-bottom:16px;box-shadow:inset 0 0 0 1px var(--lavande-ligne)}
+.lancement::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--violet);animation:pouls 1.8s infinite}
+@keyframes pouls{0%{box-shadow:0 0 0 0 rgba(117,80,204,.5)}70%{box-shadow:0 0 0 10px rgba(117,80,204,0)}100%{box-shadow:0 0 0 0 rgba(117,80,204,0)}}
+.tarif{margin-bottom:20px;padding-top:20px;border-top:1.5px solid var(--lavande-ligne)}
+.offre.b .tarif{border-color:rgba(255,255,255,.15)}
+.tarif s{font:600 17px var(--titre);color:var(--texte-3);text-decoration-thickness:2px;text-decoration-color:#D06A86}
+.offre.b .tarif s{color:#9AA5CC}
+.tarif-l{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:2px}
+.tarif-l b{font:800 clamp(34px,9vw,44px)/1.1 var(--titre);letter-spacing:-.02em;color:var(--violet)}
+.offre.b .tarif-l b{color:#fff}
+.tarif-l b small{font-size:.45em;font-weight:700;letter-spacing:0;margin-left:2px}
+.pastille-prix{font:700 13px var(--titre);padding:6px 10px;border-radius:999px;background:var(--lavande-pale);color:var(--violet)}
+.offre.b .pastille-prix{background:var(--lavande);color:var(--marine)}
+.tarif-note{font-size:14px;color:#C9D0EA;margin-top:8px}
+.offre .btn{width:100%}
+.offre.a .btn{background:var(--marine);color:#fff}
+.reco-tag{align-self:flex-start;margin-bottom:14px;font:700 12.5px var(--titre);background:var(--lavande);color:var(--marine);padding:6px 11px;border-radius:999px}
+
+/* exclusivité */
+.exclu{background:radial-gradient(80% 60% at 0% 0%,rgba(117,80,204,.45),transparent 60%),var(--marine);color:#fff}
+.exclu-grille{display:grid;gap:32px;align-items:center}
+@media (min-width:920px){.exclu-grille{grid-template-columns:1.1fr .9fr;gap:72px}}
+.ps{font:800 18px var(--titre);color:var(--lavande)}
+.exclu h2{font-weight:800;font-size:clamp(32px,8.4vw,60px);margin-top:8px;letter-spacing:-.03em}
+.exclu .expli{font-size:clamp(17px,4.4vw,20px);color:#C9D0EA;margin-top:16px;max-width:36ch}
+.exclu .expli b{color:#fff}
+.wa{background:#fff;color:var(--marine);border-radius:24px;padding:22px}
+.wa-fil{background:#EEF0F7;border-radius:16px;padding:16px;display:flex;flex-direction:column;gap:8px;margin-bottom:18px}
+.wa-b{align-self:flex-end;max-width:90%;background:#E2D6FA;border-radius:14px 14px 4px 14px;padding:10px 13px;font-size:15px;line-height:1.45}
+.wa-b small{display:block;text-align:right;font-size:11.5px;color:var(--texte-3);margin-top:2px}
+.wa-r{align-self:flex-start;max-width:85%;background:#fff;border-radius:14px 14px 14px 4px;padding:10px 13px;font-size:15px;line-height:1.45}
+.wa .btn{width:100%;min-height:60px;font-size:17px}
+.wa-num{display:flex;justify-content:space-between;gap:8px 12px;flex-wrap:wrap;margin-top:14px;font-size:14px;color:var(--texte-3)}
+.wa-num a{color:var(--marine);font-weight:600;text-decoration:none}
+
+/* FAQ */
+.faq-grille{display:grid;gap:24px}
+@media (min-width:920px){.faq-grille{grid-template-columns:.8fr 1.2fr;gap:72px}}
+details{border-bottom:1.5px solid var(--lavande-ligne)}
+details:first-child{border-top:1.5px solid var(--lavande-ligne)}
+summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:20px 0;font:700 17px/1.35 var(--titre)}
+summary::-webkit-details-marker{display:none}
+summary i{flex:none;width:30px;height:30px;border-radius:9px;background:var(--lavande-pale);position:relative}
+summary i::before,summary i::after{content:"";position:absolute;left:50%;top:50%;width:12px;height:2px;background:var(--violet);transform:translate(-50%,-50%);transition:transform .25s}
+summary i::after{transform:translate(-50%,-50%) rotate(90deg)}
+details[open] summary i::after{transform:translate(-50%,-50%) rotate(0)}
+details p{color:var(--texte-2);padding:0 0 20px;max-width:56ch}
+
+/* WhatsApp flottant (mobile) */
+.wa-flot{position:fixed;left:16px;right:16px;bottom:14px;z-index:40;display:flex;align-items:center;justify-content:center;gap:10px;min-height:56px;border-radius:16px;background:linear-gradient(135deg,#8A63E0,var(--violet) 55%,var(--violet-2));color:#fff;font:700 16px var(--titre);text-decoration:none;box-shadow:0 14px 34px -10px rgba(5,26,78,.55);transform:translateY(calc(100% + 30px));transition:transform .35s cubic-bezier(.2,.8,.2,1)}
+.wa-flot.visible{transform:none}
+@media (min-width:920px){.wa-flot{display:none}}
+
+footer{background:var(--lavande-pale);padding:36px 0 100px;border-top:1px solid var(--lavande-ligne)}
+@media (min-width:920px){footer{padding-bottom:36px}}
+.pied{display:flex;flex-direction:column;align-items:center;gap:14px;text-align:center;font-size:14px;color:var(--texte-2)}
+.pied img{width:240px}
+@media (min-width:920px){.pied{flex-direction:row;justify-content:space-between;text-align:left}}
+
+
+/* ================= finition design ================= */
+@property --a{syntax:'<angle>';inherits:false;initial-value:0deg}
+.hero{isolation:isolate}
+.hero::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background-image:linear-gradient(rgba(184,144,232,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(184,144,232,.07) 1px,transparent 1px);
+  background-size:44px 44px;-webkit-mask-image:radial-gradient(80% 70% at 70% 30%,#000,transparent 75%);mask-image:radial-gradient(80% 70% at 70% 30%,#000,transparent 75%)}
+.hero::after{content:"";position:absolute;width:520px;height:520px;right:-180px;top:-160px;z-index:-1;border-radius:50%;
+  background:radial-gradient(circle,rgba(150,110,240,.55),transparent 65%);filter:blur(30px);animation:flotte 14s ease-in-out infinite;pointer-events:none}
+@keyframes flotte{50%{transform:translate(-90px,70px) scale(1.15)}}
+.ia{position:relative;isolation:isolate}
+.ia::before{content:"";position:absolute;inset:-2px;border-radius:26px;z-index:-1;
+  background:conic-gradient(from var(--a),#B890E8,#7550CC,#2A4AA8,#B890E8);filter:blur(16px);opacity:.75;animation:tourne 7s linear infinite}
+.ia::after{content:"";position:absolute;inset:0;border-radius:24px;background:#fff;z-index:-1}
+@keyframes tourne{to{--a:360deg}}
+.btn-violet{position:relative;overflow:hidden}
+.btn-violet::after{content:"";position:absolute;top:0;bottom:0;width:60%;left:-80%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.45),transparent);transform:skewX(-18deg);animation:brille 3.8s ease-in-out infinite}
+@keyframes brille{0%,55%{left:-80%}85%,100%{left:130%}}
+.choc em{background:linear-gradient(90deg,var(--violet),#B890E8);-webkit-background-clip:text;background-clip:text;color:transparent}
+.titre em{background:linear-gradient(90deg,var(--violet),#9D7BF0);-webkit-background-clip:text;background-clip:text;color:transparent}
+.revele{opacity:0;transform:translateY(26px);transition:opacity .8s cubic-bezier(.2,.8,.2,1),transform .8s cubic-bezier(.2,.8,.2,1)}
+.revele.vu{opacity:1;transform:none}
+
+/* étape 1 : questions qui défilent */
+.v-questions{padding:20px 0;overflow:hidden}
+.q-tete{display:flex;align-items:center;gap:12px;padding:0 20px 16px}
+.q-tete b{font:800 44px/1 var(--titre);background:linear-gradient(135deg,#9A76EA,var(--violet));-webkit-background-clip:text;background-clip:text;color:transparent}
+.q-tete span{font:700 15px/1.3 var(--titre);color:var(--texte-2);max-width:18ch}
+.defile{overflow:hidden;padding:5px 0;-webkit-mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent)}
+.piste{display:flex;gap:8px;width:max-content;animation:defile 34s linear infinite}
+.piste.inverse{animation-direction:reverse;animation-duration:40s}
+.piste.lente{animation-duration:46s}
+.piste span{flex:none;background:var(--lavande-pale);border-radius:14px 14px 14px 4px;padding:9px 14px;font-size:14.5px;white-space:nowrap;box-shadow:inset 0 0 0 1px var(--lavande-ligne)}
+.piste span:nth-child(3n){background:var(--marine);color:#fff;box-shadow:none}
+@keyframes defile{to{transform:translateX(-50%)}}
+
+/* étape 2 : score */
+.score-tete{display:flex;align-items:center;gap:16px;padding-bottom:16px;border-bottom:1.5px solid var(--lavande-ligne)}
+.score-big{display:flex;align-items:baseline;flex:none}
+.score-big b{font:800 72px/1 var(--titre);letter-spacing:-.04em;background:linear-gradient(160deg,#F59E0B,#E0475F);-webkit-background-clip:text;background-clip:text;color:transparent}
+.score-big span{font:800 26px var(--titre);color:var(--texte-3);margin-left:2px}
+.score-lib strong{display:block;font:800 17px/1.25 var(--titre)}
+.score-lib small{display:block;font-size:13px;color:var(--texte-3);margin-top:2px}
+.ia-scores{display:flex;flex-direction:column;gap:12px;margin-top:16px}
+.ia-l{display:grid;grid-template-columns:82px minmax(0,1fr) 42px 86px;gap:10px;align-items:center;font-size:14.5px}
+.ia-n{font:700 14px var(--titre)}
+.barre{height:10px;border-radius:6px;background:#EEF0F6;overflow:hidden}
+.barre i{display:block;height:100%;width:0;border-radius:6px;transition:width 1.2s cubic-bezier(.2,.8,.2,1)}
+.vu .barre i{width:calc(var(--n) * 10%)}
+.ia-l b{font:800 14px var(--titre);text-align:right}
+.etat{font:700 12px var(--titre);padding:5px 8px;border-radius:999px;text-align:center}
+.rouge .barre i{background:linear-gradient(90deg,#F37A8C,#E0475F)} .rouge .etat{background:#FDE7EB;color:#C42F4B} .rouge b{color:#C42F4B}
+.orange .barre i{background:linear-gradient(90deg,#FBBF24,#F59E0B)} .orange .etat{background:#FEF3D7;color:#B45309} .orange b{color:#B45309}
+.vert .barre i{background:linear-gradient(90deg,#4ADE80,#16A34A)} .vert .etat{background:#DCF5E5;color:#15803D} .vert b{color:#15803D}
+.ia-scores .ia-l:nth-child(2) .barre i{transition-delay:.15s}.ia-scores .ia-l:nth-child(3) .barre i{transition-delay:.3s}.ia-scores .ia-l:nth-child(4) .barre i{transition-delay:.45s}.ia-scores .ia-l:nth-child(5) .barre i{transition-delay:.6s}.ia-scores .ia-l:nth-child(6) .barre i{transition-delay:.75s}
+@media (max-width:400px){.ia-l{grid-template-columns:74px minmax(0,1fr) 38px;}.etat{display:none}}
+
+/* étape 3 : à faire */
+.faire-tete{display:flex;justify-content:space-between;align-items:baseline;gap:10px;padding-bottom:12px;border-bottom:2px solid var(--marine);flex-wrap:wrap}
+.faire-tete b{font:800 22px var(--titre)}
+.faire-tete span{font-size:13px;color:var(--texte-3)}
+.faire-l{display:grid;grid-template-columns:24px minmax(0,1fr) auto;gap:12px;align-items:start;padding:13px 0;border-bottom:1px solid var(--lavande-ligne)}
+.faire-l:last-child{border-bottom:0;padding-bottom:0}
+.faire-l b{display:block;font:700 15.5px/1.3 var(--titre)}
+.faire-l small{display:block;font-size:13.5px;color:var(--texte-2);margin-top:2px;line-height:1.4}
+.case-c{width:22px;height:22px;border-radius:7px;box-shadow:inset 0 0 0 2px var(--lavande);margin-top:1px;position:relative;transition:background .3s,box-shadow .3s}
+.case-c::after{content:"";position:absolute;left:7px;top:3px;width:6px;height:11px;border:solid #fff;border-width:0 2.5px 2.5px 0;transform:rotate(45deg) scale(0);transition:transform .3s cubic-bezier(.3,1.6,.4,1)}
+.vu .case-c{background:var(--violet);box-shadow:none}
+.vu .case-c::after{transform:rotate(45deg) scale(1)}
+.faire-l:nth-child(3) .case-c,.faire-l:nth-child(3) .case-c::after{transition-delay:.25s}
+.faire-l:nth-child(4) .case-c,.faire-l:nth-child(4) .case-c::after{transition-delay:.5s}
+.faire-l:nth-child(5) .case-c,.faire-l:nth-child(5) .case-c::after{transition-delay:.75s}
+.faire-l:nth-child(6) .case-c,.faire-l:nth-child(6) .case-c::after{transition-delay:1s}
+.prio.urgent{background:#FDE7EB;color:#C42F4B}
+
+/* offres */
+.tarif-note.sombre{color:var(--texte-2)}
+.offre.a .tarif-l b{color:var(--marine)}
+.cadeau{display:flex;align-items:center;gap:10px;margin-top:12px;font:700 15px var(--titre);color:var(--marine);background:linear-gradient(90deg,#E6D8FF,var(--lavande));padding:10px 14px;border-radius:12px;width:fit-content}
+.offre.b{box-shadow:0 30px 60px -30px rgba(117,80,204,.7)}
+
+/* exclusivité : équation */
+.eq-zone{display:flex;flex-direction:column;gap:14px}
+.equation{display:grid;gap:10px}
+.eq-bloc,.eq-res{display:flex;align-items:center;gap:14px;border-radius:18px;padding:14px 16px}
+.eq-bloc{background:rgba(255,255,255,.07);box-shadow:inset 0 0 0 1px rgba(255,255,255,.12)}
+.eq-ic{flex:none;width:44px;height:44px;border-radius:12px;background:rgba(184,144,232,.18);color:var(--lavande);display:grid;place-items:center}
+.eq-k{font:600 13px var(--titre);color:#A9B3D6}
+/* texte centré dans sa case : icône à gauche, colonne vide de même largeur à droite pour équilibrer */
+.eq-bloc{display:grid;grid-template-columns:44px 1fr 44px;column-gap:14px;row-gap:2px;text-align:center}
+.eq-bloc .eq-ic{grid-row:1/3;grid-column:1}
+.eq-bloc .eq-k,.eq-bloc b{grid-column:2}
+.eq-res{display:grid;grid-template-columns:52px 1fr 52px;text-align:center}
+.eq-bloc b{font:800 clamp(20px,5.4vw,24px)/1.2 var(--titre);transition:opacity .3s,transform .3s}
+.eq-op{justify-self:center;font:800 26px/1 var(--titre);color:var(--lavande)}
+.eq-res{background:linear-gradient(135deg,#9A76EA,var(--violet) 60%,var(--violet-2));box-shadow:0 18px 40px -16px rgba(117,80,204,.9)}
+.eq-cadenas{flex:none;width:52px;height:52px;border-radius:14px;background:rgba(255,255,255,.18);display:grid;place-items:center}
+.eq-res b{display:block;font:800 clamp(24px,6.4vw,30px)/1.1 var(--titre)}
+.eq-res span{font-size:14px;color:#EDE4FF}
+.eq-zone .btn{width:100%;min-height:60px;font-size:17px}
+.eq-zone .wa-num{color:#A9B3D6}
+.eq-zone .wa-num a{color:#fff}
+
+/* footer compact */
+footer{background:var(--marine);color:#A9B3D6;padding:16px 0;border-top:0}
+.pied{display:flex;flex-direction:row;align-items:center;justify-content:space-between;gap:10px 16px;flex-wrap:wrap;text-align:left;font-size:13px}
+.pied-logo{display:flex;align-items:center;gap:8px;text-decoration:none;color:#fff;font:800 14px var(--titre)}
+.pied-logo img{width:26px;height:auto;filter:brightness(0) invert(1)}
+.pied-liens{display:flex;gap:14px;flex-wrap:wrap}
+.pied-liens a{text-decoration:none;color:#C9D0EA}
+
+
+/* duel : grosse page Google à gauche, une seule réponse à droite (ordinateur) */
+.pc{display:none}
+@media (min-width:920px){
+  .pc{display:revert}
+  .mobile{display:none}
+  .duel{grid-template-columns:1.75fr 1fr;align-items:center;gap:48px}
+  .case.google{padding:26px 28px}
+  .g-page{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:24px}
+  .g-onglets{display:flex;gap:18px;font-size:13.5px;color:var(--texte-3);border-bottom:1px solid #E6E8F0;margin:-4px 0 8px;padding:0 4px}
+  .g-onglets span{padding:6px 0 9px}
+  .g-onglets .on{color:#2A44B8;box-shadow:inset 0 -3px 0 #2A44B8;font-weight:600}
+  .g-nb{font-size:12.5px;color:var(--texte-3);margin-bottom:4px}
+  .res-g span{display:block;font-size:13px;color:var(--texte-2);line-height:1.4;margin-top:2px}
+  .annonce small em{font-style:normal;font-weight:700;color:var(--marine);margin-right:6px}
+  .g-paa{display:flex !important;flex-direction:column;border-radius:12px;background:#fff;box-shadow:inset 0 0 0 1px #E6E8F0;margin:8px 0;overflow:hidden}
+  .g-paa b{font:600 14px var(--titre);padding:12px 14px 8px}
+  .g-paa span{font-size:13.5px;padding:10px 14px;border-top:1px solid #E6E8F0;display:flex;justify-content:space-between}
+  .g-paa span::after{content:"⌄";color:var(--texte-3)}
+  .g-pages{display:flex !important;gap:12px;justify-content:center;margin-top:14px;font-size:13.5px;color:#2A44B8}
+  .g-pages .on{color:var(--marine);font-weight:700}
+  .g-cote{display:flex !important;flex-direction:column;gap:2px;background:#fff;border-radius:14px;padding:10px;box-shadow:inset 0 0 0 1px #E6E8F0;align-self:start}
+  .g-carte{position:relative;height:120px;border-radius:10px;margin-bottom:6px;background:
+     linear-gradient(115deg,transparent 46%,#fff 46%,#fff 50%,transparent 50%),
+     linear-gradient(20deg,transparent 60%,#fff 60%,#fff 63%,transparent 63%),
+     linear-gradient(160deg,#DCEBD9,#E9F0E4 50%,#D7E6F2)}
+  .g-carte i{position:absolute;width:14px;height:14px;border-radius:50% 50% 50% 0;background:#E0475F;transform:rotate(-45deg);box-shadow:0 2px 4px rgba(0,0,0,.25)}
+  .g-lieu{padding:8px 6px;border-top:1px solid #EEF0F6}
+  .g-lieu b{display:block;font:600 13px/1.3 var(--corps);color:#2A44B8}
+  .g-lieu small{font-size:12px;color:#B45309}
+}
+/* carte « L'IA » : sous la page Google sur téléphone, à droite et collante sur ordinateur */
+.seul{display:flex;flex-direction:column;align-items:center;gap:16px}
+.seul-carte{width:100%;max-width:340px;background:#fff;border-radius:22px;padding:18px;box-shadow:0 30px 60px -28px rgba(117,80,204,.55),0 0 0 2px var(--lavande-ligne)}
+.seul-tete{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.seul-tete b{font:800 16px var(--titre)}
+.seul-tete span:last-child{margin-left:auto;font:700 12px var(--titre);color:var(--violet);background:var(--lavande-pale);padding:5px 10px;border-radius:999px}
+.seul .ia-pastille{width:26px;height:26px;border-radius:8px}
+.seul .ia-q{font-size:14.5px;margin:0 0 12px auto}
+.seul .reco{padding:14px}
+.seul .reco-num{width:36px;height:36px;font-size:17px}
+.seul .reco-nom{font-size:19px}
+.seul-accroche{font:800 34px/1 var(--titre);letter-spacing:-.03em;text-align:center;background:linear-gradient(90deg,var(--violet),#B890E8);-webkit-background-clip:text;background-clip:text;color:transparent}
+@media (min-width:920px){
+  .seul{position:sticky;top:calc(50vh - 150px);align-self:start;gap:22px}
+  .seul-accroche{font-size:clamp(36px,3.6vw,48px)}
+}
+.choc{margin-inline:auto;text-align:center}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-delay:0s!important;transition:none!important}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-wa" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3a.5.5 0 0 0 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.7-1.2 2.2 2.2 0 0 0 .2-1.2c-.1-.1-.3-.2-.5-.3Z"/></symbol>
+  <symbol id="i-ok" viewBox="0 0 20 20"><circle cx="10" cy="10" r="10" fill="#7550CC"/><path d="m6 10.2 2.7 2.6L14.2 7.4" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-ok-l" viewBox="0 0 20 20"><circle cx="10" cy="10" r="10" fill="#B890E8"/><path d="m6 10.2 2.7 2.6L14.2 7.4" fill="none" stroke="#051A4E" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-etoile" viewBox="0 0 24 24"><path fill="#fff" d="M12 2c.6 4.8 3.2 7.4 8 8-4.8.6-7.4 3.2-8 8-.6-4.8-3.2-7.4-8-8 4.8-.6 7.4-3.2 8-8Z"/></symbol>
+</svg>
+
+<nav class="nav" id="nav">
+  <div class="wrap nav-in">
+    <a href="#haut" class="logo" aria-label="GEO Santé, accueil">
+      <img class="ico" src="img/logo-icone.png" alt="" width="408" height="442">
+      <img class="mot" src="img/logo-texte.png" alt="GEO Santé" width="895" height="150">
+    </a>
+    <div class="nav-liens">
+      <a href="#pourquoi" data-t="nav1">Pourquoi</a>
+      <a href="#methode" data-t="nav2">Méthode</a>
+      <a href="#offres" data-t="nav3">Offres</a>
+      <a href="#faq" data-t="nav4">Questions</a>
+    </div>
+    <div class="nav-droite">
+      <button class="lang" id="lang" type="button" aria-label="English version">EN</button>
+      <a href="https://wa.me/33662622886" class="btn btn-violet js-wa" target="_blank" rel="noopener" data-t="navCta">Diagnostic IA</a>
+    </div>
+  </div>
+</nav>
+
+<main id="haut">
+  <!-- HERO -->
+  <header class="hero">
+    <div class="wrap hero-grille">
+      <div>
+        <span class="perso" id="perso"></span>
+        <span class="hier"><span data-t="hier">Avant, on demandait à Google.</span></span>
+        <h1 data-t="h1">Aujourd'hui, vos patients demandent à <em>ChatGPT.</em></h1>
+        <p class="lead" data-t="lead">Les IA de recherche ne donnent pas dix liens. Elles recommandent <b>un seul nom</b>. Soyez celui-là.</p>
+        <div class="hero-cta" id="ctaDesktop">
+          <div class="cta-col">
+            <a href="https://wa.me/33662622886" class="btn btn-violet js-wa" target="_blank" rel="noopener"><svg width="20" height="20"><use href="#i-wa"/></svg><span data-t="cta1">Demander mon diagnostic IA</span></a>
+            <div class="hero-contact">
+              <a href="mailto:contact@lockin-web.online">contact@lockin-web.online</a>
+              <a href="https://www.instagram.com/djo_kalougan/" class="insta" target="_blank" rel="noopener" aria-label="Instagram"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".9" fill="currentColor" stroke="none"/></svg></a>
+            </div>
+          </div>
+          <a href="#methode" class="btn btn-contour" data-t="cta2">Voir la méthode</a>
+        </div>
+      </div>
+
+      <div class="ia" aria-label="Exemple de réponse d'une IA de recherche">
+        <div class="ia-tete">
+          <div class="ia-qui"><span class="ia-pastille"><svg width="16" height="16"><use href="#i-etoile"/></svg></span><span class="ia-nom" id="iaNom">ChatGPT</span></div>
+          <span class="ia-statut" data-t="statut">répond</span>
+        </div>
+        <div class="ia-q js-q">Quel chirurgien me conseilles-tu pour une rhinoplastie naturelle à Lyon&#8239;?</div>
+        <p class="ia-intro" data-t="intro">Je vous recommande en priorité&#8239;:</p>
+        <div class="reco">
+          <span class="reco-num">1</span>
+          <div class="reco-txt"><div class="reco-nom js-vous">Votre cabinet</div><div class="reco-det" id="heroDet">Spécialiste du nez, résultats naturels, très bien noté</div></div>
+          <span class="badge" data-t="badge">Recommandé</span>
+        </div>
+        <div class="avant"><span data-t="avantLbl">Avant GEO Santé&#8239;:</span> <s class="js-conc">Le cabinet d'en face</s></div>
+      </div>
+
+      <div class="hero-cta" id="ctaMobile" hidden></div>
+    </div>
+  </header>
+
+  <div class="ias">
+    <div class="wrap ias-in">
+      <p data-t="iasTxt">Vos patients posent leurs questions à</p>
+      <div class="puces"><span>ChatGPT</span><span>Google AI Overviews</span><span>Gemini</span><span>Claude</span><span>Copilot</span><span>Mistral</span><span class="puce-plus" data-t="iasAll">…et toutes les IA</span></div>
+    </div>
+  </div>
+
+  <!-- POURQUOI -->
+  <section class="sec" id="pourquoi">
+    <div class="wrap">
+      <h2 class="titre" data-t="pTitre">La recherche a changé. <em>Vos patients aussi.</em></h2>
+      <div class="duel">
+        <div class="case google">
+          <div class="case-tete"><b class="g-logo" aria-label="Google"><i style="color:#4285F4">G</i><i style="color:#EA4335">o</i><i style="color:#FBBC05">o</i><i style="color:#4285F4">g</i><i style="color:#34A853">l</i><i style="color:#EA4335">e</i></b><span data-t="gTag">Avant</span></div>
+          <div class="recherche"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><span data-t="gQ" id="gQ">meilleur chirurgien rhinoplastie lyon</span></div>
+          <div class="g-onglets pc" aria-hidden="true"><span class="on" data-t="gO1">Tous</span><span data-t="gO2">Images</span><span data-t="gO3">Maps</span><span data-t="gO4">Actualités</span><span data-t="gO5">Vidéos</span><span data-t="gO6">Plus</span></div>
+          <p class="g-nb pc" data-t="gNb">Environ 1&nbsp;240&nbsp;000 résultats (0,42&nbsp;s)</p>
+          <div class="g-page">
+            <div class="g-col">
+              <div class="res-g pc annonce"><small><em data-t="gSp">Sponsorisé</em> centre-esthetique-exemple.fr</small><b data-t="gA1">Rhinoplastie à Lyon, consultation sous 48&nbsp;h</b><span data-t="gA1d">Devis gratuit, paiement en plusieurs fois. Prenez rendez-vous en ligne.</span></div>
+              <div class="res-g pc annonce"><small><em data-t="gSp2">Sponsorisé</em> clinique-beaute-exemple.com</small><b data-t="gA2">Chirurgie du nez, tarifs 2026</b><span data-t="gA2d">Découvrez nos offres et nos facilités de paiement.</span></div>
+              <div class="res-g"><small data-t="g1s">annuaire-sante.fr</small><b data-t="g1">Les 10 meilleurs chirurgiens esthétiques à Lyon</b><span class="pc" data-t="g1d">Classement, avis et tarifs des praticiens de la région lyonnaise…</span></div>
+              <div class="g-paa pc">
+                <b data-t="gPaa">Autres questions posées</b>
+                <span data-t="gP1">Quel est le prix d'une rhinoplastie à Lyon&#8239;?</span>
+                <span data-t="gP2">Comment choisir son chirurgien esthétique&#8239;?</span>
+                <span data-t="gP3">La rhinoplastie est-elle remboursée&#8239;?</span>
+              </div>
+              <div class="res-g"><small data-t="g2s">forum-beaute.com</small><b data-t="g2">Rhinoplastie à Lyon : vos avis et expériences</b><span class="pc" data-t="g2d">« J'hésite entre trois chirurgiens, des conseils&#8239;? » 214 réponses…</span></div>
+              <div class="res-g"><small data-t="g3s">clinique-exemple.fr</small><b data-t="g3">Rhinoplastie, tarifs et déroulement</b><span class="pc" data-t="g3d">Tout savoir sur l'intervention, la convalescence et les prix…</span></div>
+              <div class="res-g pc"><small data-t="g4s">magazine-sante.fr</small><b data-t="g4">Chirurgie esthétique : les pièges à éviter</b><span data-t="g4d">Nos conseils pour bien choisir son praticien…</span></div>
+              <div class="g-pages pc" aria-hidden="true"><span class="on">1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span data-t="gSuiv">Suivant</span></div>
+            </div>
+            <div class="g-cote pc" aria-hidden="true">
+              <div class="g-carte"><i style="left:28%;top:38%"></i><i style="left:58%;top:30%"></i><i style="left:46%;top:64%"></i><i style="left:74%;top:58%"></i></div>
+              <div class="g-lieu"><b data-t="gL1">Cabinet de chirurgie esthétique</b><small>★★★★☆ 4,6 (212)</small></div>
+              <div class="g-lieu"><b data-t="gL2">Clinique du centre-ville</b><small>★★★★☆ 4,4 (98)</small></div>
+              <div class="g-lieu"><b data-t="gL3">Institut de médecine esthétique</b><small>★★★★★ 4,8 (64)</small></div>
+              <div class="g-lieu"><b data-t="gL4">Centre laser et esthétique</b><small>★★★★☆ 4,2 (151)</small></div>
+            </div>
+          </div>
+          <p class="plus-res mobile" data-t="gPlus">Et des milliers d'autres résultats…</p>
+          <div class="dix mobile"><span class="dix-chiffre">10</span><span class="un-txt" data-t="gDix">liens à comparer</span></div>
+          <p class="case-pied" data-t="gPied">Le patient compare, hésite.</p>
+        </div>
+        <div class="seul">
+          <div class="seul-carte">
+            <div class="seul-tete"><span class="ia-pastille"><svg width="14" height="14"><use href="#i-etoile"/></svg></span><b data-t="iTitre">L'IA</b><span data-t="iTag">Aujourd'hui</span></div>
+            <div class="ia-q js-q2">Qui me conseilles-tu pour une rhinoplastie à Lyon&#8239;?</div>
+            <div class="reco"><span class="reco-num">1</span><div class="reco-txt"><div class="reco-nom js-vous">Votre cabinet</div><div class="reco-det" data-t="det2">Une seule réponse</div></div></div>
+          </div>
+          <p class="seul-accroche" data-t="accroche">Soyez celui-là.</p>
+        </div>
+      </div>
+      <p class="choc" data-t="choc">Il n'y a pas de <em>page&nbsp;2</em> dans une réponse d'IA.</p>
+    </div>
+  </section>
+
+  <!-- MÉTHODE -->
+  <section class="sec methode" id="methode">
+    <div class="wrap">
+      <h2 class="titre" data-t="mTitre">La méthode GEO Santé, <em>en 4 étapes.</em></h2>
+
+      <div class="parcours" id="parcours">
+        <div class="rail" aria-hidden="true"><span class="rail-plein"></span></div>
+        <div class="noeud" style="--i:0">
+          <span class="pastille"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12Z"/><path d="M9.8 9.5a2.3 2.3 0 0 1 4.4.8c0 1.5-2.2 2-2.2 3.2M12 16.5h.01"/></svg><i>1</i></span>
+          <div class="noeud-txt"><b data-t="s1">Questions</b><p data-t="s1p">30 questions de patients</p><span class="chip" data-t="s1c">30 questions</span></div>
+        </div>
+        <div class="noeud" style="--i:1">
+          <span class="pastille"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg><i>2</i></span>
+          <div class="noeud-txt"><b data-t="s2">Analyse</b><p data-t="s2p">Qui chaque IA recommande</p><span class="chip" data-t="s2c">6 IA testées</span></div>
+        </div>
+        <div class="noeud" style="--i:2">
+          <span class="pastille"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16h3"/></svg><i>3</i></span>
+          <div class="noeud-txt"><b data-t="s3">Prescription</b><p data-t="s3p">Quoi corriger, en priorité</p><span class="chip" data-t="s3c">Classé par impact</span></div>
+        </div>
+        <div class="noeud" style="--i:3">
+          <span class="pastille"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 11a8 8 0 1 0-2.3 5.7"/><path d="M20 4v7h-7"/></svg><i>4</i></span>
+          <div class="noeud-txt"><b data-t="s4">Suivi</b><p data-t="s4p">On corrige pour vous</p><span class="chip" data-t="s4c">Chaque semaine</span></div>
+        </div>
+      </div>
+
+      <div class="etapes">
+        <div class="etape">
+          <div class="etape-txt">
+            <span class="etape-num" data-n="1" data-t="e1n">Étape 1</span>
+            <h3 data-t="e1">Questions</h3>
+            <p data-t="e1p">Nous posons aux IA les 30 questions que vos patients se posent vraiment sur votre spécialité.</p>
+          </div>
+          <div class="visuel v-questions">
+            <div class="q-tete"><b>30</b><span data-t="qTete">questions testées sur votre spécialité</span></div>
+            <div class="defile" aria-hidden="true"><div class="piste" id="piste1"></div></div>
+            <div class="defile" aria-hidden="true"><div class="piste inverse" id="piste2"></div></div>
+            <div class="defile" aria-hidden="true"><div class="piste lente" id="piste3"></div></div>
+          </div>
+        </div>
+
+        <div class="etape inv">
+          <div class="etape-txt">
+            <span class="etape-num" data-n="2" data-t="e2n">Étape 2</span>
+            <h3 data-t="e2">Analyse</h3>
+            <p data-t="e2p">Pour chaque réponse, nous notons qui est recommandé&#8239;: vous, un concurrent, ou personne.</p>
+          </div>
+          <div class="visuel v-score" id="vScore">
+            <div class="score-tete">
+              <div class="score-big"><b id="scoreNum">4</b><span>/10</span></div>
+              <div class="score-lib"><strong data-t="scoreLib">Votre score de visibilité IA</strong><small data-t="scoreEx">Exemple de bilan de départ</small></div>
+            </div>
+            <div class="ia-scores">
+              <div class="ia-l rouge" style="--n:1"><span class="ia-n">ChatGPT</span><span class="barre"><i></i></span><b>1/10</b><span class="etat" data-t="eAbs">Absent</span></div>
+              <div class="ia-l orange" style="--n:5"><span class="ia-n">Gemini</span><span class="barre"><i></i></span><b>5/10</b><span class="etat" data-t="eParf">Parfois</span></div>
+              <div class="ia-l orange" style="--n:3"><span class="ia-n">Google</span><span class="barre"><i></i></span><b>3/10</b><span class="etat" data-t="eParf2">Parfois</span></div>
+              <div class="ia-l rouge" style="--n:2"><span class="ia-n">Claude</span><span class="barre"><i></i></span><b>2/10</b><span class="etat" data-t="eAbs2">Absent</span></div>
+              <div class="ia-l vert" style="--n:7"><span class="ia-n">Copilot</span><span class="barre"><i></i></span><b>7/10</b><span class="etat" data-t="eReco">Recommandé</span></div>
+              <div class="ia-l orange" style="--n:4"><span class="ia-n">Mistral</span><span class="barre"><i></i></span><b>4/10</b><span class="etat" data-t="eParf3">Parfois</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="etape">
+          <div class="etape-txt">
+            <span class="etape-num" data-n="3" data-t="e3n">Étape 3</span>
+            <h3 data-t="e3">Prescription</h3>
+            <p data-t="e3p">Vous recevez la liste précise de ce qu'il faut corriger, classée par impact.</p>
+          </div>
+          <div class="visuel v-faire" id="vFaire">
+            <div class="faire-tete"><b data-t="faireT">À faire</b><span data-t="faireN">5 actions, par ordre d'impact</span></div>
+            <div class="faire-l"><span class="case-c"></span><div><b data-t="a1">Réécrire vos pages d'actes</b><small data-t="a1d">Une page claire par acte&#8239;: pour qui, résultat, déroulé.</small></div><span class="prio urgent" data-t="pU1">Urgent</span></div>
+            <div class="faire-l"><span class="case-c"></span><div><b data-t="a2">Faire parler vos patients</b><small data-t="a2d">Avis récents, et une réponse à chaque avis.</small></div><span class="prio urgent" data-t="pU2">Urgent</span></div>
+            <div class="faire-l"><span class="case-c"></span><div><b data-t="a3">Être cité par des sources fiables</b><small data-t="a3d">Presse santé, annuaires médicaux, articles d'experts.</small></div><span class="prio" data-t="pI1">Important</span></div>
+            <div class="faire-l"><span class="case-c"></span><div><b data-t="a4">Répondre aux vraies questions</b><small data-t="a4d">Une FAQ par acte, avec les mots de vos patients.</small></div><span class="prio" data-t="pI2">Important</span></div>
+            <div class="faire-l"><span class="case-c"></span><div><b data-t="a5">Uniformiser vos informations</b><small data-t="a5d">Même nom, actes et adresse partout sur le web.</small></div><span class="prio" data-t="pI3">Important</span></div>
+          </div>
+        </div>
+
+        <div class="etape inv">
+          <div class="etape-txt">
+            <span class="etape-num" data-n="4" data-t="e4n">Étape 4</span>
+            <h3 data-t="e4">Suivi</h3>
+            <p data-t="e4p">Vous appliquez vous-même, ou nous le faisons pour vous chaque semaine&#8239;: on corrige, on remesure, on ajuste.</p>
+          </div>
+          <div class="visuel" id="suivi">
+            <svg class="courbe" viewBox="0 0 700 230" role="img" aria-label="Exemple de progression sur 12 semaines">
+              <defs><linearGradient id="gA" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#B890E8" stop-opacity=".55"/><stop offset="1" stop-color="#B890E8" stop-opacity="0"/></linearGradient></defs>
+              <g stroke="#E3D8F8" stroke-width="1.5"><line x1="0" y1="50" x2="700" y2="50"/><line x1="0" y1="120" x2="700" y2="120"/><line x1="0" y1="190" x2="700" y2="190"/></g>
+              <path class="courbe-aire" d="M0,205 C80,200 140,190 210,172 S350,126 420,100 S580,46 690,30 L690,230 L0,230 Z" fill="url(#gA)"/>
+              <path class="courbe-trait" d="M0,205 C80,200 140,190 210,172 S350,126 420,100 S580,46 690,30" fill="none" stroke="#7550CC" stroke-width="5" stroke-linecap="round"/>
+              <circle class="courbe-pt" cx="690" cy="30" r="9" fill="#7550CC" stroke="#fff" stroke-width="4"/>
+            </svg>
+            <div class="courbe-pied"><span data-t="sem1">Semaine 1</span><span data-t="semEx">Exemple</span><span data-t="sem12">Semaine 12</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OFFRES -->
+  <section class="sec" id="offres">
+    <div class="wrap">
+      <span class="lancement" data-t="lancement">Offre réservée aux premiers cabinets</span>
+      <h2 class="titre" data-t="fTitre">Vous appliquez, <em>ou on s'en charge.</em></h2>
+      <div class="offres">
+        <div class="offre a">
+          <h3 data-t="f1">Diagnostic et prescription</h3>
+          <p class="pour" data-t="f1p">Votre équipe applique.</p>
+          <ul>
+            <li><svg width="20" height="20"><use href="#i-ok"/></svg><span data-t="f1a">Les 30 questions posées aux IA</span></li>
+            <li><svg width="20" height="20"><use href="#i-ok"/></svg><span data-t="f1b">Votre score et vos concurrents cités</span></li>
+            <li><svg width="20" height="20"><use href="#i-ok"/></svg><span data-t="f1c">La liste « À faire »</span></li>
+          </ul>
+          <div class="tarif">
+            <div class="tarif-l"><b data-t="f1prix">490&nbsp;€&nbsp;HT</b></div>
+            <p class="tarif-note sombre" data-t="f1note">Offert si vous choisissez le suivi hebdomadaire.</p>
+          </div>
+          <a href="https://wa.me/33662622886" class="btn js-wa" target="_blank" rel="noopener"><svg width="20" height="20"><use href="#i-wa"/></svg><span data-t="f1cta">Demander mon diagnostic</span></a>
+        </div>
+        <div class="offre b">
+          <span class="reco-tag" data-t="recoTag">Recommandé</span>
+          <h3 data-t="f2">Suivi hebdomadaire</h3>
+          <p class="pour" data-t="f2p">Nous faisons tout.</p>
+          <ul>
+            <li><svg width="20" height="20"><use href="#i-ok-l"/></svg><span data-t="f2a">Le diagnostic et la prescription offerts</span></li>
+            <li><svg width="20" height="20"><use href="#i-ok-l"/></svg><span data-t="f2b">Les corrections faites chaque semaine</span></li>
+            <li><svg width="20" height="20"><use href="#i-ok-l"/></svg><span data-t="f2c">Les 30 questions remesurées</span></li>
+            <li><svg width="20" height="20"><use href="#i-ok-l"/></svg><span data-t="f2d">L'exclusivité sur votre ville et votre spécialité</span></li>
+          </ul>
+          <div class="tarif">
+            <s data-t="f2barre">790&nbsp;€/mois</s>
+            <div class="tarif-l"><b data-t="f2prix">490&nbsp;€&nbsp;HT<small>/mois</small></b><span class="pastille-prix" data-t="lanc">Prix lancement</span></div>
+            <div class="cadeau"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="8" width="18" height="13" rx="2"/><path d="M12 8v13M3 12h18M12 8c-2-4-6-4-6-1.5S9 8 12 8Zm0 0c2-4 6-4 6-1.5S15 8 12 8Z"/></svg><span data-t="cadeau">+ Diagnostic offert (490&nbsp;€&nbsp;HT)</span></div>
+            <p class="tarif-note" data-t="f2note">5 places par spécialité en France, une seule par ville.</p>
+          </div>
+          <a href="https://wa.me/33662622886" class="btn btn-violet js-wa" target="_blank" rel="noopener"><svg width="20" height="20"><use href="#i-wa"/></svg><span data-t="f2cta">Réserver mon exclusivité</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXCLUSIVITÉ -->
+  <section class="sec exclu" id="exclusivite">
+    <div class="wrap exclu-grille">
+      <div>
+        <span class="ps" data-t="ps">P.-S.</span>
+        <h2 data-t="exTitre">Une ville, une spécialité&#8239;: un seul client.</h2>
+        <p class="expli" id="exExpli">Par cohérence, nous ne faisons jamais recommander deux concurrents pour la même question. <b>Quand une place est prise, elle n'est plus disponible.</b></p>
+      </div>
+      <div class="eq-zone">
+        <div class="equation" id="equation">
+          <div class="eq-bloc"><span class="eq-ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/></svg></span><span class="eq-k" data-t="eqK1">Ville</span><b id="eqVille">Lyon</b></div>
+          <span class="eq-op">+</span>
+          <div class="eq-bloc"><span class="eq-ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c.6 4.2 2.8 6.4 7 7-4.2.6-6.4 2.8-7 7-.6-4.2-2.8-6.4-7-7 4.2-.6 6.4-2.8 7-7Z"/></svg></span><span class="eq-k" data-t="eqK2">Spécialité</span><b id="eqSpe">Rhinoplastie</b></div>
+          <span class="eq-op">=</span>
+          <div class="eq-res"><span class="eq-cadenas"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10.5" width="16" height="10.5" rx="2.5"/><path d="M8 10.5V7.5a4 4 0 0 1 8 0v3"/></svg></span><div><b data-t="eqRes">1 seul cabinet</b><span data-t="eqRes2">accompagné par GEO Santé</span></div></div>
+        </div>
+        <a href="https://wa.me/33662622886" class="btn btn-blanc js-wa" target="_blank" rel="noopener"><svg width="22" height="22"><use href="#i-wa"/></svg><span data-t="waBtn">Réserver ma place</span></a>
+        <div class="wa-num"><span data-t="waSans">Sur WhatsApp, sans formulaire.</span><a href="tel:+33662622886">+33 6 62 62 28 86</a></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="sec" id="faq">
+    <div class="wrap faq-grille">
+      <h2 class="titre" data-t="faqTitre">Vos questions.</h2>
+      <div>
+        <details><summary><span data-t="fq1">Le référencement IA (GEO), c'est quoi&#8239;?</span><i></i></summary><p data-t="fa1">Le référencement Google, mais pour ChatGPT, Gemini, Claude ou Mistral. Objectif&#8239;: que l'IA cite votre cabinet quand un patient lui demande qui consulter.</p></details>
+        <details><summary><span data-t="fq2">Je suis bien placé sur Google. Ça suffit&#8239;?</span><i></i></summary><p data-t="fa2">Pas forcément. Une IA croise votre site, vos avis et la presse, puis elle choisit un nom. Le diagnostic vous montre où vous en êtes.</p></details>
+        <details><summary><span data-t="fq3">Mes patients viennent de loin. Ça compte aussi&#8239;?</span><i></i></summary><p data-t="fa3">Oui. Les 30 questions couvrent votre spécialité au-delà de votre ville, y compris les patients qui voyagent pour se faire opérer.</p></details>
+        <details><summary><span data-t="fq4">Est-ce compatible avec la déontologie&#8239;?</span><i></i></summary><p data-t="fa4">Oui. Nous travaillons sur l'information et la cohérence de votre présence en ligne. Pas de publicité, pas de promesse de résultat médical.</p></details>
+      </div>
+    </div>
+  </section>
+</main>
+
+<a href="https://wa.me/33662622886" class="wa-flot js-wa" id="waFlot" target="_blank" rel="noopener"><svg width="22" height="22"><use href="#i-wa"/></svg><span data-t="waFlot">Demander mon diagnostic IA</span></a>
+
+<footer id="pied">
+  <div class="wrap pied">
+    <a href="#haut" class="pied-logo"><img src="img/logo-icone.png" alt="" width="408" height="442"><span>GEO Santé</span></a>
+    <span class="pied-liens"><a href="tel:+33662622886">+33 6 62 62 28 86</a><a href="#" data-t="ml">Mentions légales</a><span>© 2026</span></span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  const WA = '33662622886';
+  const reduit = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---------- personnalisation par le lien ----------
+     ?dr=Dr%20Martin&v=Lyon&a=une%20rhinoplastie&c=Clinique%20X&lang=fr
+     dr = nom affiché, v = ville, a = acte (avec son article), c = cabinet que l'IA cite aujourd'hui */
+  const P = new URLSearchParams(location.search);
+  const get = k => (P.get(k) || '').trim().slice(0, 70);
+  const perso = { dr:get('dr'), v:get('v'), a:get('a'), c:get('c') };
+  const estPerso = !!perso.dr;
+  if (estPerso) document.body.classList.add('est-perso');
+
+  /* ---------- anglais ---------- */
+  const EN = {
+    nav1:'Why', nav2:'Method', nav3:'Plans', nav4:'FAQ', navCta:'AI diagnosis',
+    hier:'We used to ask Google.', h1:'Now your patients ask <em>ChatGPT.</em>',
+    lead:'AI search engines don’t give ten links. They recommend <b>one name</b>. Be that name.',
+    cta1:'Request my AI diagnosis', cta2:'See the method',
+    statut:'answering', intro:'My top recommendation:', det:'Natural results, very satisfied patients', badge:'Recommended', avantLbl:'Before GEO Santé:',
+    iasTxt:'Your patients ask their questions to', iasAll:'…and every other AI',
+    pTitre:'Search has changed. <em>So have your patients.</em>',
+    gTag:'Before', gQ:'best rhinoplasty surgeon lyon',
+    g1s:'health-directory.com', g1:'The 10 best cosmetic surgeons in Lyon', g2s:'beauty-forum.com', g2:'Rhinoplasty in Lyon: your reviews', g3s:'example-clinic.com', g3:'Rhinoplasty: prices and procedure',
+    gPlus:'And thousands more results…', gDix:'links to compare', gPied:'Patients compare and hesitate.',
+    iTitre:'AI', iTag:'Today', det2:'single name recommended', iPied:'Patients book.',
+    choc:'There is no <em>page&nbsp;2</em> in an AI answer.',
+    mTitre:'The GEO Santé method, <em>in 4 steps.</em>',
+    s1:'Questions', s1p:'30 patient questions', s1c:'30 questions', s2:'Analysis', s2p:'Who each AI recommends', s2c:'6 AIs tested', s3:'Prescription', s3p:'What to fix, by priority', s3c:'Ranked by impact', s4:'Follow-up', s4p:'We fix it for you', s4c:'Every week',
+    e1n:'Step 1', e1:'Questions', e1p:'We ask the AIs the 30 questions your patients really ask about your specialty.',
+    q1:'Best cosmetic surgeon in Lyon?', q2:'Natural rhinoplasty, who to choose?', q3:'Injections, who can I trust?', qPlus:'+ 27 more questions',
+    e2n:'Step 2', e2:'Analysis', e2p:'For each answer, we record who gets recommended: you, a competitor, or nobody.',
+    bQ:'Question', lV:'You', lC:'Competitor', lR:'Nobody', bScore:'answers recommend you. Example starting report.',
+    e3n:'Step 3', e3:'Prescription', e3p:'You get a precise list of what to fix, ranked by impact.',
+    o1:'Procedure pages AI can read', o2:'Reviews and press highlighted', o3:'Answers to patient questions', o4:'Consistent online presence', p1:'Urgent', p1b:'Urgent', p2:'Important', p2b:'Important',
+    e4n:'Step 4', e4:'Follow-up', e4p:'Apply it yourself, or we do it for you every week: we fix, re-measure, adjust.',
+    sem1:'Week 1', semEx:'Example', sem12:'Week 12',
+    fTitre:'Do it yourself, <em>or let us handle it.</em>',
+    f1:'Diagnosis & prescription', f1p:'Your team implements.', f1a:'The 30 questions asked to the AIs', f1b:'Your report and cited competitors', f1c:'The prescription', lancement:'Launch offer for the first practices', offert:'Free', f1cta:'Get my free diagnosis', f2barre:'€790/month', lanc:'Launch price', f2note:'5 spots per specialty in France, only one per city.',
+    recoTag:'Recommended', f2:'Weekly management', f2p:'We do everything.', f2a:'The full diagnosis and prescription', f2b:'Fixes made every week', f2c:'The 30 questions re-measured', f2d:'Exclusivity for your specialty and area', f2prix:'€490<small>/month excl. VAT</small>', f2cta:'Reserve my exclusivity',
+    ps:'P.S.', exTitre:'One practice per specialty and area.',
+    waRep:'Hi! Let me check right away if your specialty is still available.', waBtn:'Reserve my exclusivity', waSans:'On WhatsApp, no form.', waFlot:'Request my AI diagnosis',
+    faqTitre:'Your questions.',
+    fq1:'What is AI search optimization (GEO)?', fa1:'Like Google SEO, but for ChatGPT, Gemini, Claude or Mistral. The goal: the AI names your practice when a patient asks who to see.',
+    fq2:'I rank well on Google. Isn’t that enough?', fa2:'Not necessarily. An AI cross-checks your website, reviews and press, then picks one name. The diagnosis shows where you stand.',
+    fq3:'My patients travel from far away. Does that count?', fa3:'Yes. The 30 questions cover your specialty beyond your city, including patients who travel for surgery.',
+    fq4:'Is it compatible with medical ethics?', fa4:'Yes. We work on information and the consistency of your online presence. No advertising, no promise of medical results.',
+    copy:'© 2026 GEO Santé. Legal notice'
+  };
+
+
+  Object.assign(EN, {
+    qTete:'questions tested on your specialty',
+    scoreLib:'Your AI visibility score', scoreEx:'Example starting report', eAbs:'Absent', eParf:'Sometimes', eParf2:'Sometimes', eParf3:'Sometimes', eAbs2:'Absent', eReco:'Recommended',
+    faireT:'To do', faireN:'5 actions, by impact',
+    a1:'Rewrite your procedure pages', a1d:'One clear page per procedure: who it’s for, results, process.',
+    a2:'Get your patients talking', a2d:'Recent reviews, and a reply to each one.',
+    a3:'Get cited by trusted sources', a3d:'Health press, medical directories, expert articles.',
+    a4:'Answer real questions', a4d:'One FAQ per procedure, in your patients’ words.',
+    a5:'Make your information consistent', a5d:'Same name, procedures and address everywhere online.',
+    pU1:'Urgent', pU2:'Urgent', pI1:'Important', pI2:'Important', pI3:'Important',
+    f1b:'Your score and cited competitors', f1c:'The to-do list',
+    f1prix:'€490 excl. VAT', f1note:'Free if you choose weekly management.', f1cta:'Request my diagnosis',
+    f2a:'Diagnosis and prescription included free', f2d:'Exclusivity for your city and specialty',
+    cadeau:'+ Free diagnosis (€490 excl. VAT)',
+    exTitre:'One city, one specialty: one client.',
+    eqK1:'City', eqK2:'Specialty', eqRes:'1 practice only', eqRes2:'supported by GEO Santé',
+    waBtn:'Reserve my spot', ml:'Legal notice'
+  });
+
+  Object.assign(EN, {
+    gO1:'All', gO2:'Images', gO3:'Maps', gO4:'News', gO5:'Videos', gO6:'More',
+    gNb:'About 1,240,000 results (0.42 seconds)', gSp:'Sponsored', gSp2:'Sponsored',
+    gA1:'Rhinoplasty in Lyon, appointment within 48 h', gA1d:'Free quote, payment in instalments. Book online.',
+    gA2:'Nose surgery, 2026 prices', gA2d:'Discover our offers and payment options.',
+    g1d:'Rankings, reviews and prices of surgeons in the Lyon area…',
+    gPaa:'People also ask', gP1:'How much is a rhinoplasty in Lyon?', gP2:'How do I choose a cosmetic surgeon?', gP3:'Is rhinoplasty covered by insurance?',
+    g2d:'“Torn between three surgeons, any advice?” 214 replies…', g3d:'Everything about the procedure, recovery and prices…',
+    g4s:'health-magazine.com', g4:'Cosmetic surgery: pitfalls to avoid', g4d:'Our tips for choosing the right practitioner…', gSuiv:'Next',
+    gL1:'Cosmetic surgery practice', gL2:'Downtown clinic', gL3:'Aesthetic medicine institute', gL4:'Laser and aesthetics center',
+    det2:'One single answer', accroche:'Be that one.'
+  });
+
+  const dyn = {
+    fr: {
+      q: perso.a && perso.v ? `Qui me conseilles-tu pour ${perso.a} à ${perso.v} ?` : perso.v ? `Quel chirurgien esthétique me conseilles-tu à ${perso.v} ?` : 'Quel chirurgien me conseilles-tu pour une rhinoplastie naturelle à Lyon ?',
+      q2: perso.a && perso.v ? `Qui me conseilles-tu pour ${perso.a} à ${perso.v} ?` : perso.v ? `Quel chirurgien me conseilles-tu à ${perso.v} ?` : 'Qui me conseilles-tu pour une rhinoplastie à Lyon ?',
+      vous: perso.dr || 'Votre cabinet',
+      conc: perso.c || 'Le cabinet d’en face',
+      pill: `Page préparée pour ${perso.dr}${perso.v ? ', ' + perso.v : ''}`,
+      expli: perso.v
+        ? `Pour ${perso.a ? perso.a + ' à ' : ''}${perso.v}, <b>la place est encore libre.</b> Quand elle est prise, elle n’est plus disponible.`
+        : 'Par cohérence, nous ne faisons jamais recommander deux concurrents pour la même question. <b>Quand une place est prise, elle n’est plus disponible.</b>',
+      wa: estPerso ? `Bonjour, ici ${perso.dr}${perso.v ? ' (' + perso.v + ')' : ''}. J’ai vu la page GEO Santé et je souhaite un diagnostic IA.` : 'Bonjour, je souhaite un diagnostic IA pour mon cabinet.',
+      title: estPerso ? `${perso.dr}, voici ce que les IA répondent à vos patients` : 'GEO Santé, référencement IA pour la médecine et la chirurgie esthétique',
+      langBtn:'EN', langLabel:'English version'
+    },
+    en: {
+      q: perso.a && perso.v ? `Who do you recommend for ${perso.a} in ${perso.v}?` : perso.v ? `Which cosmetic surgeon do you recommend in ${perso.v}?` : 'Which surgeon do you recommend for a natural rhinoplasty in Lyon?',
+      q2: perso.a && perso.v ? `Who do you recommend for ${perso.a} in ${perso.v}?` : perso.v ? `Which surgeon do you recommend in ${perso.v}?` : 'Who do you recommend for a rhinoplasty in Lyon?',
+      vous: perso.dr || 'Your practice',
+      conc: perso.c || 'The clinic across the street',
+      pill: `Prepared for ${perso.dr}${perso.v ? ', ' + perso.v : ''}`,
+      expli: perso.v
+        ? `For ${perso.a ? perso.a + ' in ' : ''}${perso.v}, <b>the spot is still open.</b> Once it’s taken, it’s gone.`
+        : 'For consistency, we never get two competitors recommended for the same question. <b>Once a spot is taken, it’s gone.</b>',
+      wa: estPerso ? `Hi, this is ${perso.dr}${perso.v ? ' (' + perso.v + ')' : ''}. I saw the GEO Santé page and would like an AI diagnosis.` : 'Hi, I’d like an AI diagnosis for my practice.',
+      title: estPerso ? `${perso.dr}, here’s what AI tells your patients` : 'GEO Santé, AI search optimization for aesthetic medicine',
+      langBtn:'FR', langLabel:'Version française'
+    }
+  };
+  const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  // échapper les valeurs du lien avant de les insérer dans du HTML
+  ['fr','en'].forEach(l => { const p2 = {dr:esc(perso.dr), v:esc(perso.v), a:esc(perso.a)};
+    dyn[l].expliHtml = (l === 'fr')
+      ? (p2.v ? `Pour ${p2.a ? p2.a + ' à ' : ''}${p2.v}, <b>la place est encore libre.</b> Quand elle est prise, elle n’est plus disponible.` : dyn.fr.expli)
+      : (p2.v ? `For ${p2.a ? p2.a + ' in ' : ''}${p2.v}, <b>the spot is still open.</b> Once it’s taken, it’s gone.` : dyn.en.expli);
+  });
+
+  // Le français est dans le HTML (lisible par Google et les IA) : on le mémorise.
+  const FR = {};
+  document.querySelectorAll('[data-t]').forEach(el => { FR[el.dataset.t] = el.innerHTML; });
+
+  let lang;
+  try { lang = P.get('lang') || localStorage.getItem('lang'); } catch(e) { lang = P.get('lang'); }
+  if (lang !== 'fr' && lang !== 'en') lang = (navigator.language || 'fr').toLowerCase().startsWith('fr') ? 'fr' : 'en';
+
+  function appliquer(l){
+    const dict = l === 'en' ? EN : FR, d = dyn[l];
+    document.documentElement.lang = l;
+    document.querySelectorAll('[data-t]').forEach(el => { const v = dict[el.dataset.t]; if (v != null) el.innerHTML = v; });
+    document.querySelectorAll('.js-q').forEach(el => el.textContent = d.q);
+    document.querySelectorAll('.js-q2').forEach(el => el.textContent = d.q2);
+    document.querySelectorAll('.js-vous').forEach(el => el.textContent = d.vous);
+    document.querySelectorAll('.js-conc').forEach(el => el.textContent = d.conc);
+    document.getElementById('perso').textContent = d.pill;
+    document.getElementById('exExpli').innerHTML = d.expliHtml;
+    const lb = document.getElementById('lang'); lb.textContent = d.langBtn; lb.setAttribute('aria-label', d.langLabel);
+    document.title = d.title;
+    const href = `https://wa.me/${WA}?text=${encodeURIComponent(d.wa)}`;
+    document.querySelectorAll('.js-wa').forEach(a => a.href = href);
+  }
+  appliquer(lang);
+  document.getElementById('lang').addEventListener('click', () => {
+    lang = lang === 'fr' ? 'en' : 'fr';
+    appliquer(lang);
+    if (window.__scene) window.__scene();
+    try { localStorage.setItem('lang', lang); } catch(e) {}
+    const u = new URL(location.href); u.searchParams.set('lang', lang); history.replaceState(null, '', u);
+  });
+
+  /* ---------- mobile : les boutons passent sous la carte IA ---------- */
+  const ctaD = document.getElementById('ctaDesktop'), ctaM = document.getElementById('ctaMobile');
+  const mq = matchMedia('(max-width:919px)');
+  const placer = () => { if (mq.matches) { ctaM.hidden = false; while (ctaD.firstElementChild) ctaM.appendChild(ctaD.firstElementChild); } else if (ctaM.children.length) { while (ctaM.firstElementChild) ctaD.appendChild(ctaM.firstElementChild); ctaM.hidden = true; } };
+  const placerSi = () => { if (mq.matches ? ctaD.children.length : ctaM.children.length) placer(); };
+  placerSi(); mq.addEventListener ? mq.addEventListener('change', placerSi) : mq.addListener(placerSi);
+
+  /* ---------- la carte IA fait tourner des demandes classiques ----------
+     Chaque IA reçoit une question différente ; la réponse recommande toujours « Votre cabinet ».
+     Avec un lien personnalisé, la question du prospect reste fixe : seule l'IA change. */
+  const SCENES = {
+    fr: [
+      { ia:'ChatGPT',    q:'Quel chirurgien me conseilles-tu pour une rhinoplastie naturelle à Lyon ?', det:'Spécialiste du nez, résultats naturels, très bien noté' },
+      { ia:'Gemini',     q:'Où faire des injections d’acide hyaluronique sans effet figé à Paris ?',   det:'Médecin esthétique réputé pour des résultats subtils' },
+      { ia:'Claude',     q:'Qui consulter pour une augmentation mammaire à Bordeaux ?',                     det:'Chirurgien plasticien qualifié, suivi très apprécié' },
+      { ia:'Copilot',    q:'Quelle clinique choisir pour une greffe de cheveux en France ?',                det:'Technique FUE, patients venus de toute l’Europe' },
+      { ia:'ChatGPT',    q:'Blépharoplastie à Marseille, quel chirurgien choisir ?',                        det:'Paupières, regard reposé, avis patients excellents' }
+    ],
+    en: [
+      { ia:'ChatGPT',    q:'Which surgeon do you recommend for a natural rhinoplasty in Lyon?', det:'Nose specialist, natural results, highly rated' },
+      { ia:'Gemini',     q:'Where can I get hyaluronic acid fillers in Paris without a frozen look?', det:'Aesthetic doctor known for subtle results' },
+      { ia:'Claude',     q:'Who should I see for breast augmentation in Bordeaux?', det:'Board-certified plastic surgeon, excellent follow-up' },
+      { ia:'Copilot',    q:'Which clinic should I choose for a hair transplant in France?', det:'FUE technique, patients from all over Europe' },
+      { ia:'ChatGPT',    q:'Eyelid surgery in Marseille, which surgeon should I choose?', det:'Eyelids, rested look, excellent patient reviews' }
+    ]
+  };
+  const iaNom = document.getElementById('iaNom'), heroQ = document.querySelector('.ia .js-q'), heroDet = document.getElementById('heroDet');
+  const fondus = [iaNom, heroQ, heroDet];
+  let scene = 0;
+  const montrer = () => {
+    const s = SCENES[lang][scene];
+    iaNom.textContent = s.ia;
+    if (!estPerso) { heroQ.textContent = s.q; heroDet.textContent = s.det; }
+  };
+  window.__scene = montrer;
+  montrer();
+  if (!reduit) {
+    setInterval(() => {
+      fondus.forEach(e => e.classList.add('sort'));
+      setTimeout(() => { scene = (scene + 1) % SCENES.fr.length; montrer(); fondus.forEach(e => e.classList.remove('sort')); }, 300);
+    }, 3400);
+  }
+
+  /* ---------- header + bouton flottant ---------- */
+  const flot = document.getElementById('waFlot'), exclu = document.getElementById('exclusivite'), hero = document.querySelector('.hero');
+  const surScroll = () => {
+    const r = exclu.getBoundingClientRect();
+    const pied = document.getElementById('pied').getBoundingClientRect(); const offres = document.getElementById('offres').getBoundingClientRect();
+    flot.classList.toggle('visible', hero.getBoundingClientRect().bottom < 0 && !(r.top < innerHeight && r.bottom > 0) && pied.top > innerHeight && !(offres.top < innerHeight - 80 && offres.bottom > 80));
+  };
+  addEventListener('scroll', surScroll, {passive:true}); surScroll();
+
+  /* ---------- parcours : la ligne se remplit et les étapes s'allument au défilement ---------- */
+  const parcours = document.getElementById('parcours'), noeuds = [...parcours.querySelectorAll('.noeud')];
+  const majParcours = () => {
+    if (reduit) { parcours.style.setProperty('--p', 1); noeuds.forEach(n => n.classList.add('actif')); return; }
+    const r = parcours.getBoundingClientRect(), vh = innerHeight;
+    const horizontal = matchMedia('(min-width:920px)').matches;
+    const p = horizontal ? (vh * .8 - r.top) / (vh * .45) : (vh * .62 - r.top) / r.height;
+    const pc = Math.max(0, Math.min(1, p));
+    parcours.style.setProperty('--p', pc.toFixed(3));
+    noeuds.forEach((n, i) => {
+      const seuil = horizontal ? i / (noeuds.length - 1) : (n.offsetTop + 28) / r.height;
+      n.classList.toggle('actif', pc >= seuil - 0.02);
+    });
+  };
+  addEventListener('scroll', majParcours, {passive:true}); addEventListener('resize', majParcours); majParcours();
+
+  /* ---------- finitions : questions, score, à faire, équation, apparitions ---------- */
+  const QUESTIONS = {
+    fr: [
+      ['Meilleur chirurgien du nez à Lyon ?', 'Botox : qui consulter ?', 'Rhinoplastie : quel prix ?', 'Lifting sans cicatrice visible ?', 'Injections lèvres naturelles ?'],
+      ['Clinique fiable pour une lipo ?', 'Augmentation mammaire : qui choisir ?', 'Greffe de cheveux : où aller ?', 'Blépharoplastie : bon chirurgien ?', 'Chirurgien esthétique bien noté ?'],
+      ['Acide hyaluronique : quel médecin ?', 'Abdominoplastie : qui consulter ?', 'Médecin esthétique près de moi ?', 'Rhinoplastie ultrasonique : qui ?', 'Cernes : quel traitement ?']
+    ],
+    en: [
+      ['Best nose surgeon in Lyon?', 'Botox: who should I see?', 'Rhinoplasty: what price?', 'Facelift without visible scars?', 'Natural lip fillers?'],
+      ['Trusted clinic for liposuction?', 'Breast augmentation: who to choose?', 'Hair transplant: where to go?', 'Eyelid surgery: good surgeon?', 'Top-rated cosmetic surgeon?'],
+      ['Hyaluronic acid: which doctor?', 'Tummy tuck: who to see?', 'Aesthetic doctor near me?', 'Ultrasonic rhinoplasty: who?', 'Dark circles: which treatment?']
+    ]
+  };
+  const remplirPistes = () => {
+    ['piste1','piste2','piste3'].forEach((id, i) => {
+      const items = QUESTIONS[lang][i];
+      document.getElementById(id).innerHTML = [...items, ...items].map(q => `<span>${q}</span>`).join('');
+    });
+  };
+  remplirPistes();
+
+  const PAIRES = {
+    fr: [['Lyon','Rhinoplastie'], ['Paris','Injections'], ['Bordeaux','Chirurgie mammaire'], ['Marseille','Greffe de cheveux'], ['Nice','Lifting']],
+    en: [['Lyon','Rhinoplasty'], ['Paris','Fillers'], ['Bordeaux','Breast surgery'], ['Marseille','Hair transplant'], ['Nice','Facelift']]
+  };
+  const eqVille = document.getElementById('eqVille'), eqSpe = document.getElementById('eqSpe');
+  let paire = 0;
+  const majEquation = () => {
+    if (estPerso && perso.v) {
+      eqVille.textContent = perso.v;
+      const acte = perso.a.replace(/^(une|un|des|le|la|les|l['’]|a|an|the)\s*/i, '');
+      eqSpe.textContent = acte ? acte.charAt(0).toUpperCase() + acte.slice(1) : (lang === 'fr' ? 'Votre spécialité' : 'Your specialty');
+      return;
+    }
+    const [v, sp] = PAIRES[lang][paire];
+    eqVille.textContent = v; eqSpe.textContent = sp;
+  };
+  majEquation();
+  if (!reduit && !(estPerso && perso.v)) {
+    setInterval(() => {
+      [eqVille, eqSpe].forEach(e => e.classList.add('sort'));
+      setTimeout(() => { paire = (paire + 1) % PAIRES.fr.length; majEquation(); [eqVille, eqSpe].forEach(e => e.classList.remove('sort')); }, 300);
+    }, 2600);
+  }
+  document.getElementById('lang').addEventListener('click', () => { remplirPistes(); majEquation(); });
+
+  // apparitions + déclencheurs (score qui compte, barres, cases cochées)
+  const cibles = document.querySelectorAll('.visuel, .case, .offre, .eq-zone, .noeud-txt');
+  const scoreNum = document.getElementById('scoreNum');
+  const compter = () => {
+    if (reduit) { scoreNum.textContent = '4'; return; }
+    let n = 0; scoreNum.textContent = '0';
+    const t = setInterval(() => { n++; scoreNum.textContent = n; if (n >= 4) clearInterval(t); }, 180);
+  };
+  if ('IntersectionObserver' in window && !reduit) {
+    cibles.forEach(el => { if (!el.classList.contains('noeud-txt')) el.classList.add('revele'); });
+    const io = new IntersectionObserver(es => es.forEach(e => {
+      if (!e.isIntersecting) return;
+      e.target.classList.add('vu');
+      if (e.target.id === 'vScore') compter();
+      io.unobserve(e.target);
+    }), {threshold:.12, rootMargin:"0px 0px -40px 0px"});
+    cibles.forEach(el => { if (!el.classList.contains('noeud-txt')) io.observe(el); });
+  } else {
+    cibles.forEach(el => el.classList.add('vu'));
+  }
+
+  /* ---------- questions tapées comme à la machine à écrire ---------- */
+  const machine = (el, delai) => {
+    if (!el || !('IntersectionObserver' in window) || reduit) return;
+    const debut = lang, texte = el.textContent;
+    el.style.minHeight = el.getBoundingClientRect().height + 'px';   // pas de saut de mise en page
+    el.textContent = '';
+    el.classList.add('frappe');
+    const finir = () => { el.style.minHeight = ''; setTimeout(() => el.classList.remove('frappe'), 1500); };
+    new IntersectionObserver((es, o) => {
+      if (!es[0].isIntersecting) return;
+      o.disconnect();
+      let i = 0;
+      const pas = () => {
+        if (lang !== debut) { el.classList.remove('frappe'); el.style.minHeight = ''; return; } // langue changée : texte complet déjà remis
+        el.textContent = texte.slice(0, ++i);
+        if (i < texte.length) setTimeout(pas, 45 + Math.random() * 80); else finir();
+      };
+      setTimeout(pas, delai);
+    }, {threshold:.8}).observe(el.parentElement);   // le parent : un élément vide n'a pas de surface à observer
+  };
+  machine(document.getElementById('gQ'), 500);
+  machine(document.querySelector('.js-q2'), 900);
+
+  /* ---------- courbe : se dessine à l'arrivée ---------- */
+  const suivi = document.getElementById('suivi');
+  if ('IntersectionObserver' in window) new IntersectionObserver((es, o) => { if (es[0].isIntersecting) { suivi.classList.add('vu'); o.disconnect(); } }, {threshold:.4}).observe(suivi);
+  else suivi.classList.add('vu');
+})();
+</script>
+</body>
+</html>

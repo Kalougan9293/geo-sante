@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Image d'aperçu GEO Santé</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Inter:wght@500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{width:1200px;height:630px;overflow:hidden;font-family:Inter,sans-serif;color:#fff;
+  background:radial-gradient(70% 80% at 90% 10%,rgba(117,80,204,.6),transparent 60%),radial-gradient(60% 60% at 0% 100%,rgba(184,144,232,.25),transparent 60%),#051A4E;
+  display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center;padding:0 64px}
+.logo{display:flex;align-items:center;gap:12px;background:#fff;border-radius:16px;padding:10px 18px;width:fit-content;margin-bottom:34px}
+.logo img.i{height:52px}.logo img.m{height:24px}
+.hier{font:700 28px Montserrat;color:#A9B3D6;text-decoration:line-through;text-decoration-color:#B890E8;text-decoration-thickness:3px}
+h1{font:800 64px/1.03 Montserrat;letter-spacing:-.03em;margin-top:10px}
+h1 em{font-style:normal;color:#C9AEFF}
+.carte{background:#fff;color:#051A4E;border-radius:28px;padding:26px;box-shadow:0 40px 80px -30px rgba(0,0,0,.6)}
+.q{background:#F3EEFD;border-radius:18px 18px 4px 18px;padding:14px 18px;font-size:21px;line-height:1.4;margin-left:auto;width:fit-content;max-width:95%}
+.intro{font-size:19px;color:#4A5378;margin:18px 4px 12px}
+.reco{display:flex;align-items:center;gap:16px;border:3px solid #7550CC;background:linear-gradient(135deg,#F7F2FF,#EFE6FF);border-radius:20px;padding:20px}
+.n{width:54px;height:54px;border-radius:15px;background:#7550CC;color:#fff;display:grid;place-items:center;font:800 26px Montserrat}
+.nom{font:800 30px Montserrat}
+.det{font-size:17px;color:#4A5378;margin-top:2px}
+</style>
+</head>
+<body>
+  <div>
+    <div class="logo"><img class="i" src="../img/logo-icone.png" alt=""><img class="m" src="../img/logo-texte.png" alt="GEO Santé"></div>
+    <div class="hier">Avant, on demandait à Google.</div>
+    <h1>Aujourd'hui, vos patients demandent à <em>ChatGPT.</em></h1>
+  </div>
+  <div class="carte">
+    <div class="q">Quel chirurgien me conseilles-tu pour une rhinoplastie à Lyon&#8239;?</div>
+    <div class="intro">Je vous recommande en priorité&#8239;:</div>
+    <div class="reco"><span class="n">1</span><div><div class="nom">Votre institut</div><div class="det">Le seul nom recommandé</div></div></div>
+  </div>
+</body>
+</html>

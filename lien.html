@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Créer un lien prospect</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400..600&family=Hanken+Grotesk:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--nacre:#F1E6E0;--nacre-3:#DCC6BA;--prune:#2B1A24;--prune-2:#5C4552;--prune-3:#8A7280;--bloc:#0F5E52;--bloc-2:#D5E6E0}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--nacre);color:var(--prune);font:17px/1.5 "Hanken Grotesk",system-ui,sans-serif;padding:40px 16px 80px}
+.box{max-width:640px;margin:0 auto}
+h1{font-family:"Bodoni Moda",Georgia,serif;font-weight:400;font-size:clamp(34px,6vw,48px);line-height:1.05;margin-bottom:10px}
+.intro{color:var(--prune-2);margin-bottom:32px}
+label{display:block;margin-bottom:18px}
+label span{display:block;font-weight:600;font-size:15px;margin-bottom:6px}
+label small{display:block;color:var(--prune-3);font-size:14px;margin-top:6px}
+input,select{width:100%;min-height:50px;border-radius:14px;border:1.5px solid var(--nacre-3);background:#FBF6F3;color:var(--prune);font:inherit;padding:0 14px;outline:none}
+input:focus,select:focus{border-color:var(--bloc)}
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:0 14px}
+@media (max-width:520px){.duo{grid-template-columns:1fr}}
+.sortie{margin-top:28px;background:#FBF6F3;border-radius:20px;padding:22px;border:1.5px solid var(--nacre-3)}
+.sortie code{display:block;word-break:break-all;font-size:14px;color:var(--prune-2);background:var(--nacre);border-radius:10px;padding:12px;margin:8px 0 16px}
+.actions{display:flex;gap:10px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 20px;border-radius:999px;font:600 15px/1 inherit;font-family:inherit;border:1.5px solid var(--prune);background:transparent;color:var(--prune);cursor:pointer;text-decoration:none}
+.btn.plein{background:var(--prune);color:var(--nacre)}
+.btn.vert{background:var(--bloc);border-color:var(--bloc);color:#fff}
+.ok{color:var(--bloc);font-weight:600;font-size:15px;min-height:22px;margin-top:10px}
+.conseil{margin-top:28px;font-size:15px;color:var(--prune-2);border-left:3px solid var(--bloc);padding-left:14px}
+</style>
+</head>
+<body>
+<div class="box">
+  <h1>Créer un lien prospect</h1>
+  <p class="intro">Remplissez, copiez, envoyez. Le prospect verra son nom dans la page.</p>
+
+  <label><span>Nom affiché</span><input id="dr" placeholder="Dr Martin" autocomplete="off"><small>Tel qu'il apparaîtra en vert&#8239;: « Dr Martin », « Clinique Lumière »…</small></label>
+  <div class="duo">
+    <label><span>Ville</span><input id="v" placeholder="Lyon" autocomplete="off"></label>
+    <label><span>Langue de la page</span><select id="lang"><option value="fr">Français</option><option value="en">English</option></select></label>
+  </div>
+  <label><span>Acte, avec son article</span><input id="a" placeholder="une rhinoplastie" autocomplete="off"><small>Donne la question&#8239;: « Qui me conseilles-tu pour <b>une rhinoplastie</b> à Lyon&#8239;? »</small></label>
+  <label><span>Cabinet cité aujourd'hui par ChatGPT</span><input id="c" placeholder="Clinique du Parc" autocomplete="off"><small>Posez vraiment la question à ChatGPT et notez le nom qu'il donne. Vide&#8239;: « Le cabinet d'en face ».</small></label>
+
+  <div class="sortie">
+    <b>Lien à envoyer</b>
+    <code id="lien">Remplissez au moins le nom.</code>
+    <div class="actions">
+      <button class="btn plein" id="copier" type="button">Copier le lien</button>
+      <a class="btn vert" id="wa" target="_blank" rel="noopener" href="#">Envoyer par WhatsApp</a>
+      <a class="btn" id="voir" target="_blank" rel="noopener" href="index.html">Voir la page</a>
+    </div>
+    <p class="ok" id="ok" role="status"></p>
+  </div>
+
+  <p class="conseil">Le côté « Avant » doit toujours montrer la vraie réponse de ChatGPT. Un médecin vérifiera&#8239;: c'est ce qui rend la démonstration crédible.</p>
+</div>
+<script>
+const $ = id => document.getElementById(id);
+const base = new URL('index.html', location.href);
+function maj(){
+  const u = new URL(base);
+  ['dr','v','a','c'].forEach(k => { const val = $(k).value.trim(); if (val) u.searchParams.set(k, val); });
+  u.searchParams.set('lang', $('lang').value);
+  const pret = !!$('dr').value.trim();
+  $('lien').textContent = pret ? u.href : 'Remplissez au moins le nom.';
+  $('voir').href = u.href;
+  const fr = $('lang').value === 'fr';
+  const msg = fr
+    ? `Bonjour ${$('dr').value.trim()}, j'ai demandé à ChatGPT qui il recommande${$('v').value.trim() ? ' à ' + $('v').value.trim() : ''}. Voici sa réponse, et ce qu'elle pourrait être : ${u.href}`
+    : `Hi ${$('dr').value.trim()}, I asked ChatGPT who it recommends${$('v').value.trim() ? ' in ' + $('v').value.trim() : ''}. Here's its answer, and what it could be: ${u.href}`;
+  $('wa').href = 'https://wa.me/?text=' + encodeURIComponent(msg);
+  $('ok').textContent = '';
+}
+document.querySelectorAll('input,select').forEach(el => el.addEventListener('input', maj));
+$('copier').addEventListener('click', async () => {
+  if (!$('dr').value.trim()) { $('dr').focus(); return; }
+  try { await navigator.clipboard.writeText($('lien').textContent); $('ok').textContent = 'Lien copié.'; }
+  catch(e) { $('ok').textContent = 'Copie impossible ici : sélectionnez le lien et copiez-le à la main.'; }
+});
+maj();
+</script>
+</body>
+</html>
