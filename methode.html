@@ -98,7 +98,9 @@ h1,h2,h3{font-family:var(--titre);letter-spacing:-.02em;line-height:1.15}
 .formule li{display:flex;gap:10px;font-size:15.5px;line-height:1.5}
 .formule li::before{content:"";flex:none;width:7px;height:7px;border-radius:50%;background:var(--violet);margin-top:9px}
 .formule.fonce li::before{background:var(--lavande)}
-.formule s{font:600 16px var(--titre);color:var(--texte-3);text-decoration-thickness:2px;text-decoration-color:#D06A86}
+.formule s{align-self:flex-start;position:relative;text-decoration:none;font:600 16px var(--titre);color:var(--texte-3)}
+.formule s::after{content:"";position:absolute;left:-3px;right:-3px;top:52%;border-top:1.5px solid rgba(196,47,75,.75);transform:rotate(-12deg)}
+.formule.fonce s::after{border-color:rgba(243,122,140,.85)}
 .formule.fonce s{color:#9AA5CC}
 .formule .prix{font:800 36px/1.1 var(--titre);letter-spacing:-.02em;color:var(--marine);margin-top:2px}
 .formule.fonce .prix{color:#fff}
@@ -135,7 +137,7 @@ footer a{text-decoration:none}
     {"@type": "Question", "name": "Garantissez-vous que l'IA me citera ?", "acceptedAnswer": {"@type": "Answer", "text": "Non. Personne ne contrôle la réponse d'une IA. Notre engagement porte sur la méthode et la mesure : nous travaillons votre visibilité et nous vous montrons, chiffres à l'appui, comment elle évolue."}},
     {"@type": "Question", "name": "Pourquoi poser chaque question plusieurs fois ?", "acceptedAnswer": {"@type": "Answer", "text": "Une IA ne répond jamais deux fois pareil. En posant chaque question sous plusieurs formulations, plusieurs fois, à chaque IA, le score reflète la fréquence à laquelle vous êtes cité et non une réponse isolée."}},
     {"@type": "Question", "name": "L'exclusivité s'applique-t-elle à toutes les formules ?", "acceptedAnswer": {"@type": "Answer", "text": "Non. L'exclusivité (une ville, une spécialité, un seul cabinet accompagné) est réservée à la formule Accompagnement."}},
-    {"@type": "Question", "name": "Faut-il s'engager dans la durée ?", "acceptedAnswer": {"@type": "Answer", "text": "Le Diagnostic est ponctuel. Le Suivi est mensuel. L'Accompagnement demande un engagement de 3 mois minimum."}}
+    {"@type": "Question", "name": "Faut-il s'engager dans la durée ?", "acceptedAnswer": {"@type": "Answer", "text": "Le Diagnostic est ponctuel, sans engagement. Le Suivi et l'Accompagnement se prennent sur 3 ou 6 mois, avec un tarif mensuel plus bas sur 6 mois."}}
   ]
 }
 </script>
@@ -233,7 +235,7 @@ footer a{text-decoration:none}
       <p>Deux options&#8239;:</p>
       <ul class="liste">
         <li><span><b>Vous appliquez</b> avec votre équipe, à partir de la prescription (formules Diagnostic et Suivi)&#8239;;</span></li>
-        <li><span><b>Nous prenons la main</b> chaque semaine sur votre site, vos contenus, vos avis et vos sources (formule Accompagnement).</span></li>
+        <li><span><b>Nous préparons les actions</b> chaque semaine (pages d'actes, FAQ, textes pour annuaires et fiche Google, réponses aux avis) et <b>vous validez</b> avant toute mise en ligne (formule Accompagnement).</span></li>
       </ul>
     </div>
   </section>
@@ -280,7 +282,7 @@ footer a{text-decoration:none}
         <div class="formule">
           <span class="lanc">Prix lancement</span>
           <h3>Suivi</h3>
-          <p class="rythme">Chaque mois. Vous appliquez.</p>
+          <p class="rythme">1 bilan par mois, sur 3 ou 6 mois. Vous appliquez.</p>
           <ul>
             <li>Les mêmes questions remesurées chaque mois, dans les mêmes conditions</li>
             <li>Rapport comparatif&#8239;: score avant et après, questions gagnées ou perdues</li>
@@ -288,21 +290,21 @@ footer a{text-decoration:none}
           </ul>
           <s>390&nbsp;€/mois</s>
           <div class="prix">290&nbsp;€ <small>HT/mois</small></div>
-          <p class="note">Une mesure par mois.</p>
+          <p class="note">Sur 3 mois, soit 870&nbsp;€&nbsp;HT.<br>Sur 6 mois&#8239;: 260&nbsp;€&nbsp;HT/mois, soit 1&nbsp;560&nbsp;€&nbsp;HT.</p>
           <a href="https://wa.me/33662622886?text=Bonjour%2C%20je%20souhaite%20le%20Suivi%20GEO%20Sant%C3%A9%20pour%20mon%20cabinet." class="btn btn-marine" target="_blank" rel="noopener"><svg width="20" height="20"><use href="#i-wa"/></svg>Demander le suivi</a>
         </div>
         <div class="formule fonce">
           <span class="lanc">Recommandé · Prix lancement</span>
           <h3>Accompagnement</h3>
-          <p class="rythme">Chaque semaine. Nous faisons tout.</p>
+          <p class="rythme">1 bilan par mois, sur 3 ou 6 mois. Nous préparons, vous validez.</p>
           <ul>
-            <li>Le suivi complet, remesuré chaque semaine</li>
-            <li>Les corrections faites par nos soins chaque semaine</li>
+            <li>Le suivi complet, remesuré chaque mois</li>
+            <li>Les actions préparées par nos soins chaque semaine, publiées avec votre accord</li>
             <li>Exclusivité&#8239;: une ville, une spécialité, un seul cabinet accompagné</li>
           </ul>
           <s>1&nbsp;490&nbsp;€/mois</s>
           <div class="prix">990&nbsp;€ <small>HT/mois</small></div>
-          <p class="note">3 mois minimum.</p>
+          <p class="note">Sur 3 mois, soit 2&nbsp;970&nbsp;€&nbsp;HT.<br>Sur 6 mois&#8239;: 890&nbsp;€&nbsp;HT/mois, soit 5&nbsp;340&nbsp;€&nbsp;HT.</p>
           <a href="https://wa.me/33662622886?text=Bonjour%2C%20je%20souhaite%20l%E2%80%99Accompagnement%20GEO%20Sant%C3%A9%20pour%20mon%20cabinet." class="btn btn-violet" target="_blank" rel="noopener"><svg width="20" height="20"><use href="#i-wa"/></svg>Réserver mon exclusivité</a>
         </div>
       </div>
@@ -317,7 +319,7 @@ footer a{text-decoration:none}
       <details><summary><span>Garantissez-vous que l'IA me citera&#8239;?</span><i></i></summary><p>Non. Personne ne contrôle la réponse d'une IA. Notre engagement porte sur la méthode et la mesure&#8239;: nous travaillons votre visibilité et nous vous montrons, chiffres à l'appui, comment elle évolue.</p></details>
       <details><summary><span>Pourquoi poser chaque question plusieurs fois&#8239;?</span><i></i></summary><p>Une IA ne répond jamais deux fois pareil. En posant chaque question sous plusieurs formulations, plusieurs fois, à chaque IA, le score reflète la fréquence à laquelle vous êtes cité et non une réponse isolée.</p></details>
       <details><summary><span>L'exclusivité s'applique-t-elle à toutes les formules&#8239;?</span><i></i></summary><p>Non. L'exclusivité (une ville, une spécialité, un seul cabinet accompagné) est réservée à la formule Accompagnement.</p></details>
-      <details><summary><span>Faut-il s'engager dans la durée&#8239;?</span><i></i></summary><p>Le Diagnostic est ponctuel. Le Suivi est mensuel. L'Accompagnement demande un engagement de 3 mois minimum.</p></details>
+      <details><summary><span>Faut-il s'engager dans la durée&#8239;?</span><i></i></summary><p>Le Diagnostic est ponctuel, sans engagement. Le Suivi et l'Accompagnement se prennent sur 3 ou 6 mois, avec un tarif mensuel plus bas sur 6 mois.</p></details>
     </div>
   </section>
 </main>

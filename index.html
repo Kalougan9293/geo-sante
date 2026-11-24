@@ -425,6 +425,58 @@ footer{background:var(--lavande-pale);padding:36px 0 100px;border-top:1px solid 
 /* titre des offres sur une ligne (ordinateur) */
 #offres .titre{max-width:none}
 @media (min-width:920px){#offres .titre{white-space:nowrap;font-size:clamp(34px,4.2vw,50px)}}
+/* refonte tarifs : nom + rythme → prix → 3 points → bouton, alignés d'une carte à l'autre */
+.o-tete{display:flex;flex-direction:column;align-items:flex-start}
+.o-tete .reco-tag{margin-bottom:10px}
+.o-tete h3{font-size:clamp(24px,6vw,30px)}
+.o-rythme{display:inline-flex;align-items:center;gap:8px;margin-top:10px;font:800 16px/1.3 var(--titre);color:var(--violet);background:var(--lavande-pale);padding:8px 12px;border-radius:10px}
+.offre.b .o-rythme{color:var(--marine);background:var(--lavande)}
+.o-tete .qui{margin-top:10px;font-size:13px;padding:6px 11px}
+.offre.a .qui.vous{background:transparent;color:var(--texte-2);padding-left:0}
+.offre.b .qui.nous{background:transparent;color:#C9D0EA;padding-left:0}
+.o-prix{margin-top:20px;padding-top:20px;border-top:1.5px solid var(--lavande-ligne)}
+.offre.b .o-prix{border-color:rgba(255,255,255,.15)}
+.o-montant{display:flex;align-items:baseline;flex-wrap:wrap;gap:4px}
+.o-montant b{font:800 clamp(34px,9vw,42px)/1.05 var(--titre);letter-spacing:-.02em;color:var(--marine)}
+.offre.b .o-montant b{color:#fff}
+.o-mois{font:800 22px var(--titre);color:var(--violet)}
+.offre.b .o-mois{color:var(--lavande)}
+/* prix barré : trait en biais, fin et discret, pour que les chiffres restent lisibles */
+.o-montant s{position:relative;margin-left:10px;text-decoration:none;font:600 18px var(--titre);color:var(--texte-3)}
+.o-montant s::after{content:"";position:absolute;left:-3px;right:-3px;top:52%;border-top:1.5px solid rgba(196,47,75,.75);transform:rotate(-12deg)}
+.offre.b .o-montant s{color:#9AA5CC}
+.offre.b .o-montant s::after{border-color:rgba(243,122,140,.85)}
+.o-total{display:flex;align-items:center;flex-wrap:wrap;gap:8px;margin-top:8px;font:600 15px/1.4 var(--titre);color:var(--texte-2)}
+.offre.b .o-total{color:#E4E8F5}
+.o-eco{font:800 12.5px var(--titre);white-space:nowrap;color:#15803D;background:#DCF5E5;padding:4px 8px;border-radius:999px}
+.offre.b .o-eco{color:#0B3B22;background:#86EFAC}
+.offres.trois .o-liste{margin:22px 0 26px;gap:10px;font-size:15px;line-height:1.45}
+.o-liste li svg{margin-top:2px}
+/* sélecteur de durée 3 / 6 mois (interrupteur qui glisse) */
+.duree-k{margin-top:28px;text-align:center;font:700 15px var(--titre);color:var(--texte-2)}
+.duree-sw{position:relative;display:grid;grid-template-columns:1fr 1fr;width:fit-content;margin:12px auto 0;padding:5px;border-radius:999px;background:var(--marine);box-shadow:0 14px 34px -14px rgba(5,26,78,.55);z-index:6}
+.duree-pouce{position:absolute;top:5px;bottom:5px;left:5px;width:calc(50% - 5px);border-radius:999px;background:#fff;box-shadow:0 4px 14px -4px rgba(5,26,78,.5);transition:transform .38s cubic-bezier(.65,0,.25,1.25)}
+#offres[data-duree="6"] .duree-pouce{transform:translateX(100%)}
+.duree-sw button{position:relative;z-index:1;display:inline-flex;align-items:center;justify-content:center;gap:8px;min-width:132px;min-height:48px;padding:0 18px;border:0;border-radius:999px;background:transparent;cursor:pointer;font:800 16px var(--titre);color:#C9D0EA;transition:color .3s}
+.duree-sw button[aria-checked="true"]{color:var(--marine)}
+.duree-sw button:focus-visible{outline:2px solid var(--lavande);outline-offset:3px}
+.duree-sw em{font:800 12px var(--titre);font-style:normal;color:#0B3B22;background:#86EFAC;padding:3px 7px;border-radius:999px}
+@media (max-width:919px){.duree-sw{position:sticky;top:78px}}
+@media (max-width:360px){.duree-sw button{min-width:116px;padding:0 12px;font-size:15px}}
+/* prix selon la durée choisie */
+#offres:not([data-duree="6"]) .d6,#offres[data-duree="6"] .d3{display:none}
+.o-prix .d3,.o-prix .d6{animation:prixFondu .4s ease}
+@keyframes prixFondu{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.duree-pouce{transition:none}.o-prix .d3,.o-prix .d6{animation:none}}
+.o-montant b span{display:inline}
+.o-qui{margin-top:10px;font:700 15px/1.4 var(--titre);color:var(--marine)}
+.offre.b .o-qui{color:#fff}
+@media (min-width:920px){.offres.trois{margin-top:40px}}
+@media (min-width:920px){
+  .offres.trois{grid-template-rows:auto auto 1fr auto}
+  .offres.trois .offre{display:grid;grid-row:span 4;grid-template-rows:subgrid;row-gap:0;align-content:start}
+  .offres.trois .offre:not(.b) .o-tete{padding-top:36px}
+}
 /* bulles « Urgent » : légère pulsation une fois la liste visible */
 .prio.urgent{position:relative}
 .vu .prio.urgent{animation:urgence 2.4s ease-in-out 1.2s infinite}
@@ -536,7 +588,9 @@ footer{background:var(--marine);color:#A9B3D6;padding:16px 0;border-top:0}
     {"@type": "Question", "name": "Mes patients viennent de loin. Ça compte aussi ?", "acceptedAnswer": {"@type": "Answer", "text": "Oui. Les 30 questions couvrent votre spécialité au-delà de votre ville, y compris les patients qui voyagent pour se faire opérer."}},
     {"@type": "Question", "name": "Est-ce compatible avec la déontologie ?", "acceptedAnswer": {"@type": "Answer", "text": "Oui. Nous travaillons sur l'information et la cohérence de votre présence en ligne. Pas de publicité, pas de promesse de résultat médical."}},
     {"@type": "Question", "name": "Comment le score sur 20 est-il calculé ?", "acceptedAnswer": {"@type": "Answer", "text": "Une IA ne répond jamais deux fois pareil. Chaque question est donc posée sous plusieurs formulations, plusieurs fois, à chaque IA. Le score reflète la fréquence à laquelle vous êtes cité, pas une réponse isolée."}},
-    {"@type": "Question", "name": "Pouvez-vous garantir que l'IA me citera ?", "acceptedAnswer": {"@type": "Answer", "text": "Non, et personne ne le peut honnêtement. Notre engagement porte sur la méthode et la mesure : nous travaillons votre visibilité et vous montrons, chiffres à l'appui, comment elle évolue."}}
+    {"@type": "Question", "name": "Pouvez-vous garantir que l'IA me citera ?", "acceptedAnswer": {"@type": "Answer", "text": "Non, et personne ne le peut honnêtement. Notre engagement porte sur la méthode et la mesure : nous travaillons votre visibilité et vous montrons, chiffres à l'appui, comment elle évolue."}},
+    {"@type": "Question", "name": "Publiez-vous à ma place ?", "acceptedAnswer": {"@type": "Answer", "text": "Non. Rien n'est mis en ligne sans votre accord. Nous préparons, vous validez. Si vous le souhaitez, vous pouvez nous donner un accès limité (éditeur) pour gagner du temps."}},
+    {"@type": "Question", "name": "Au bout de combien de temps voit-on un effet ?", "acceptedAnswer": {"@type": "Answer", "text": "Les premiers signaux apparaissent généralement entre 4 et 8 semaines, une visibilité plus stable en 3 à 6 mois. Ce sont des ordres de grandeur, pas une garantie."}}
   ]
 }
 </script>
@@ -688,7 +742,7 @@ footer{background:var(--marine);color:#A9B3D6;padding:16px 0;border-top:0}
         </div>
         <div class="noeud" style="--i:3">
           <span class="pastille"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 11a8 8 0 1 0-2.3 5.7"/><path d="M20 4v7h-7"/></svg><i>4</i></span>
-          <div class="noeud-txt"><b data-t="s4">Suivi</b><p data-t="s4p">On remesure, on corrige</p><span class="chip" data-t="s4c">Mois ou semaine</span></div>
+          <div class="noeud-txt"><b data-t="s4">Suivi</b><p data-t="s4p">On remesure, on corrige</p><span class="chip" data-t="s4c">Chaque mois</span></div>
         </div>
       </div>
 
@@ -753,17 +807,17 @@ footer{background:var(--marine);color:#A9B3D6;padding:16px 0;border-top:0}
           <div class="etape-txt">
             <span class="etape-num" data-n="4" data-t="e4n">Étape 4</span>
             <h3 data-t="e4">Suivi</h3>
-            <p data-t="e4p">Vous appliquez vous-même, ou nous le faisons pour vous chaque semaine. Puis nous remesurons&#8239;: mêmes questions, mêmes IA, même rythme. Vous voyez, chiffres à l'appui, si votre visibilité progresse.</p>
+            <p data-t="e4p">Vous appliquez vous-même, ou nous préparons les actions et vous validez. Puis nous remesurons chaque mois&#8239;: mêmes questions, mêmes IA, même méthode. Vous voyez, chiffres à l'appui, si votre visibilité progresse.</p>
           </div>
           <div class="visuel" id="suivi">
-            <svg class="courbe" viewBox="0 0 700 230" role="img" aria-label="Exemple de progression sur 12 semaines">
+            <svg class="courbe" viewBox="0 0 700 230" role="img" aria-label="Exemple de progression sur 6 mois">
               <defs><linearGradient id="gA" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#B890E8" stop-opacity=".55"/><stop offset="1" stop-color="#B890E8" stop-opacity="0"/></linearGradient></defs>
               <g stroke="#E3D8F8" stroke-width="1.5"><line x1="0" y1="50" x2="700" y2="50"/><line x1="0" y1="120" x2="700" y2="120"/><line x1="0" y1="190" x2="700" y2="190"/></g>
               <path class="courbe-aire" d="M0,205 C80,200 140,190 210,172 S350,126 420,100 S580,46 690,30 L690,230 L0,230 Z" fill="url(#gA)"/>
               <path class="courbe-trait" d="M0,205 C80,200 140,190 210,172 S350,126 420,100 S580,46 690,30" fill="none" stroke="#7550CC" stroke-width="5" stroke-linecap="round"/>
               <circle class="courbe-pt" cx="690" cy="30" r="9" fill="#7550CC" stroke="#fff" stroke-width="4"/>
             </svg>
-            <div class="courbe-pied"><span data-t="sem1">Semaine 1</span><span data-t="semEx">Exemple illustratif</span><span data-t="sem12">Semaine 12</span></div>
+            <div class="courbe-pied"><span data-t="sem1">Mois 1</span><span data-t="semEx">Exemple illustratif</span><span data-t="sem12">Mois 6</span></div>
           </div>
         </div>
       </div>
@@ -772,63 +826,70 @@ footer{background:var(--marine);color:#A9B3D6;padding:16px 0;border-top:0}
   </section>
 
   <!-- OFFRES -->
-  <section class="sec" id="offres">
+  <section class="sec" id="offres" data-duree="3">
     <div class="wrap">
-      <span class="lancement" data-t="lancement">Offre réservée aux premiers cabinets</span>
-      <h2 class="titre" data-t="fTitre">Vous appliquez, <em>ou on s'en charge.</em></h2>
+      <span class="lancement" data-t="lancement">Prix de lancement, réservés aux premiers cabinets</span>
+      <h2 class="titre" data-t="fTitre">Vous appliquez, <em>ou nous préparons tout.</em></h2>
+      <p class="duree-k" id="dureeK" data-t="dureeK">Choisissez la durée de votre suivi</p>
+      <div class="duree-sw" role="radiogroup" aria-labelledby="dureeK">
+        <span class="duree-pouce" aria-hidden="true"></span>
+        <button type="button" role="radio" aria-checked="true" data-d="3"><span data-t="d3">3 mois</span></button>
+        <button type="button" role="radio" aria-checked="false" tabindex="-1" data-d="6"><span data-t="d6">6 mois</span><em data-t="d6eco">−10&nbsp;%</em></button>
+      </div>
       <div class="offres trois">
+        <!-- 1. DIAGNOSTIC : une fois, hors durée -->
         <div class="offre a">
-          <h3 data-t="f1">Diagnostic</h3>
-          <p class="pour je" data-t="f1p">«&nbsp;Je veux savoir où j'en suis.&nbsp;»</p>
-          <span class="qui vous" data-t="f1qui">Vous appliquez</span>
-          <ul>
-            <li><svg width="20" height="20"><use href="#i-ok"/></svg><span data-t="f1a">30 questions de patients posées à 6 IA, sous plusieurs formulations</span></li>
-            <li><svg width="20" height="20"><use href="#i-ok"/></svg><span data-t="f1b">Votre score sur 20, vos concurrents cités et les sources des IA</span></li>
-            <li><svg width="20" height="20"><use href="#i-ok"/></svg><span data-t="f1c">Un rapport complet et la liste «&nbsp;À&nbsp;faire&nbsp;»</span></li>
-          </ul>
-          <p class="freq"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span data-t="f1freq">1 bilan complet, une seule fois</span></p>
-          <div class="tarif">
-            <s data-t="f1barre">790&nbsp;€&nbsp;HT</s>
-            <div class="tarif-l"><b data-t="f1prix">590&nbsp;€&nbsp;HT</b><span class="pastille-prix" data-t="lanc1">Prix de lancement</span></div>
-            <p class="engagement" data-t="f1note">Paiement unique, sans engagement</p>
+          <div class="o-tete">
+            <h3 data-t="f1">Diagnostic</h3>
+            <p class="o-rythme"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span data-t="r1">Une seule fois</span></p>
+            <p class="o-qui" data-t="o1qui">Vous appliquez les actions</p>
           </div>
+          <div class="o-prix">
+            <p class="o-montant"><b data-t="o1prix">590&nbsp;€&nbsp;HT</b><s data-t="o1barre">790&nbsp;€</s></p>
+            <p class="o-total" data-t="o1tot">Paiement unique, sans engagement</p>
+          </div>
+          <ul class="o-liste">
+            <li><svg width="18" height="18"><use href="#i-ok"/></svg><span data-t="o1a">30 questions × 6 IA, plusieurs formulations</span></li>
+            <li><svg width="18" height="18"><use href="#i-ok"/></svg><span data-t="o1b">Score sur 20, concurrents et sources des IA</span></li>
+            <li><svg width="18" height="18"><use href="#i-ok"/></svg><span data-t="o1c">Rapport et liste des actions à faire</span></li>
+          </ul>
           <a href="https://wa.me/33662622886" class="btn js-wa" data-wa="diag" target="_blank" rel="noopener"><svg width="20" height="20"><use href="#i-wa"/></svg><span data-t="f1cta">Demander mon diagnostic</span></a>
         </div>
+        <!-- 2. SUIVI : 1 bilan par mois, vous appliquez -->
         <div class="offre a">
-          <h3 data-t="f3">Suivi</h3>
-          <p class="pour je" data-t="f3p">«&nbsp;Je veux suivre ma progression.&nbsp;»</p>
-          <span class="qui vous" data-t="f3qui">Vous appliquez</span>
-          <ul>
-            <li class="plus" data-t="f3plus">Tout le Diagnostic, plus&#8239;:</li>
-            <li><svg width="20" height="20"><use href="#i-ok"/></svg><span data-t="f3a">1 bilan par mois&#8239;: mêmes questions, même rythme</span></li>
-            <li><svg width="20" height="20"><use href="#i-ok"/></svg><span data-t="f3b">Un rapport comparatif&#8239;: score avant et après, questions gagnées ou perdues, mouvements des concurrents</span></li>
-            <li><svg width="20" height="20"><use href="#i-ok"/></svg><span data-t="f3c">La liste «&nbsp;À&nbsp;faire&nbsp;» mise à jour chaque mois</span></li>
-          </ul>
-          <p class="freq"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span data-t="f3freq">1 bilan par mois</span></p>
-          <div class="tarif">
-            <s data-t="f3barre">390&nbsp;€&nbsp;HT/mois</s>
-            <div class="tarif-l"><b data-t="f3prix">290&nbsp;€&nbsp;HT<small>/mois</small></b><span class="pastille-prix" data-t="lanc3">Prix de lancement</span></div>
-            <p class="engagement" data-t="f3note">3 mois minimum, soit 870&nbsp;€&nbsp;HT</p>
+          <div class="o-tete">
+            <h3 data-t="f3">Suivi</h3>
+            <p class="o-rythme"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span data-t="r3">1 bilan par mois</span></p>
+            <p class="o-qui" data-t="o3qui">Vous appliquez les actions</p>
           </div>
+          <div class="o-prix" aria-live="polite">
+            <p class="o-montant"><b><span class="d3" data-t="o3prix3">290&nbsp;€&nbsp;HT</span><span class="d6" data-t="o3prix6">260&nbsp;€&nbsp;HT</span></b><span class="o-mois" data-t="oMois3">/mois</span><s data-t="o3barre">390&nbsp;€</s></p>
+            <p class="o-total"><span class="d3" data-t="o3tot3">Soit 870&nbsp;€&nbsp;HT les 3 mois</span><span class="d6" data-t="o3tot6">Soit 1&nbsp;560&nbsp;€&nbsp;HT les 6 mois</span><span class="o-eco"><span class="d3" data-t="o3eco3">−300&nbsp;€</span><span class="d6" data-t="o3eco6">−780&nbsp;€</span></span></p>
+          </div>
+          <ul class="o-liste">
+            <li><svg width="18" height="18"><use href="#i-ok"/></svg><span data-t="o3a">Le Diagnostic complet, refait chaque mois</span></li>
+            <li><svg width="18" height="18"><use href="#i-ok"/></svg><span data-t="o3b">L'évolution de votre score, mois après mois</span></li>
+            <li><svg width="18" height="18"><use href="#i-ok"/></svg><span data-t="o3c">Rapport et liste d'actions mis à jour</span></li>
+          </ul>
           <a href="https://wa.me/33662622886" class="btn js-wa" data-wa="suivi" target="_blank" rel="noopener"><svg width="20" height="20"><use href="#i-wa"/></svg><span data-t="f3cta">Demander le suivi</span></a>
         </div>
+        <!-- 3. ACCOMPAGNEMENT : 1 bilan par mois, nous préparons (recommandé) -->
         <div class="offre b">
-          <span class="reco-tag" data-t="recoTag">Recommandé</span>
-          <h3 data-t="f2">Accompagnement</h3>
-          <p class="pour je" data-t="f2p">«&nbsp;Je veux déléguer.&nbsp;»</p>
-          <span class="qui nous" data-t="f2qui">Nous appliquons</span>
-          <ul>
-            <li class="plus" data-t="f2plus">Tout le Suivi, plus&#8239;:</li>
-            <li><svg width="20" height="20"><use href="#i-ok-l"/></svg><span data-t="f2a">1 bilan par semaine</span></li>
-            <li><svg width="20" height="20"><use href="#i-ok-l"/></svg><span data-t="f2b">Les corrections faites par nos soins chaque semaine</span></li>
-            <li><svg width="20" height="20"><use href="#i-ok-l"/></svg><span data-t="f2d">L'exclusivité&#8239;: un seul cabinet accompagné par ville et spécialité</span></li>
-          </ul>
-          <p class="freq"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span data-t="f2freq">4 bilans par mois + corrections</span></p>
-          <div class="tarif">
-            <s data-t="f2barre">1&nbsp;490&nbsp;€&nbsp;HT/mois</s>
-            <div class="tarif-l"><b data-t="f2prix">990&nbsp;€&nbsp;HT<small>/mois</small></b><span class="pastille-prix" data-t="lanc">Prix de lancement</span></div>
-            <p class="engagement" data-t="f2note">3 mois minimum, soit 2&nbsp;970&nbsp;€&nbsp;HT</p>
+          <div class="o-tete">
+            <span class="reco-tag" data-t="recoTag">Recommandé</span>
+            <h3 data-t="f2">Accompagnement</h3>
+            <p class="o-rythme"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span data-t="r2">1 bilan par mois</span></p>
+            <p class="o-qui" data-t="o2qui">Nous préparons les actions, vous validez</p>
           </div>
+          <div class="o-prix" aria-live="polite">
+            <p class="o-montant"><b><span class="d3" data-t="o2prix3">990&nbsp;€&nbsp;HT</span><span class="d6" data-t="o2prix6">890&nbsp;€&nbsp;HT</span></b><span class="o-mois" data-t="oMois2">/mois</span><s data-t="o2barre">1&nbsp;490&nbsp;€</s></p>
+            <p class="o-total"><span class="d3" data-t="o2tot3">Soit 2&nbsp;970&nbsp;€&nbsp;HT les 3 mois</span><span class="d6" data-t="o2tot6">Soit 5&nbsp;340&nbsp;€&nbsp;HT les 6 mois</span><span class="o-eco"><span class="d3" data-t="o2eco3">−1&nbsp;500&nbsp;€</span><span class="d6" data-t="o2eco6">−3&nbsp;600&nbsp;€</span></span></p>
+          </div>
+          <ul class="o-liste">
+            <li><svg width="18" height="18"><use href="#i-ok-l"/></svg><span data-t="o2a">Le Suivi complet, chaque mois</span></li>
+            <li><svg width="18" height="18"><use href="#i-ok-l"/></svg><span data-t="o2b">Actions préparées chaque semaine, publiées avec votre accord</span></li>
+            <li><svg width="18" height="18"><use href="#i-ok-l"/></svg><span data-t="o2c">Exclusivité&#8239;: 1 cabinet par ville et spécialité</span></li>
+          </ul>
           <a href="https://wa.me/33662622886" class="btn btn-violet js-wa" data-wa="accomp" target="_blank" rel="noopener"><svg width="20" height="20"><use href="#i-wa"/></svg><span data-t="f2cta">Demander l'accompagnement</span></a>
         </div>
       </div>
@@ -868,6 +929,8 @@ footer{background:var(--marine);color:#A9B3D6;padding:16px 0;border-top:0}
         <details><summary><span data-t="fq4">Est-ce compatible avec la déontologie&#8239;?</span><i></i></summary><p data-t="fa4">Oui. Nous travaillons sur l'information et la cohérence de votre présence en ligne. Pas de publicité, pas de promesse de résultat médical.</p></details>
         <details><summary><span data-t="fq5">Comment le score sur 20 est-il calculé&#8239;?</span><i></i></summary><p data-t="fa5">Une IA ne répond jamais deux fois pareil. Chaque question est donc posée sous plusieurs formulations, plusieurs fois, à chaque IA. Le score reflète la fréquence à laquelle vous êtes cité, pas une réponse isolée.</p></details>
         <details><summary><span data-t="fq6">Pouvez-vous garantir que l'IA me citera&#8239;?</span><i></i></summary><p data-t="fa6">Non, et personne ne le peut honnêtement. Notre engagement porte sur la méthode et la mesure&#8239;: nous travaillons votre visibilité et vous montrons, chiffres à l'appui, comment elle évolue.</p></details>
+        <details><summary><span data-t="fq7">Publiez-vous à ma place&#8239;?</span><i></i></summary><p data-t="fa7">Non. Rien n'est mis en ligne sans votre accord. Nous préparons, vous validez. Si vous le souhaitez, vous pouvez nous donner un accès limité (éditeur) pour gagner du temps.</p></details>
+        <details><summary><span data-t="fq8">Au bout de combien de temps voit-on un effet&#8239;?</span><i></i></summary><p data-t="fa8">Les premiers signaux apparaissent généralement entre 4 et 8 semaines, une visibilité plus stable en 3 à 6 mois. Ce sont des ordres de grandeur, pas une garantie.</p></details>
         <p class="faq-plus"><a href="methode.html" class="lien-detail" data-t="faqPlus">Toute la méthode, étape par étape →</a></p>
       </div>
     </div>
@@ -1012,6 +1075,24 @@ footer{background:var(--marine);color:#A9B3D6;padding:16px 0;border-top:0}
     fExclu:'Exclusivity (Full support only): if your city and specialty are already taken, we tell you beforehand.'
   });
   Object.assign(EN, EN_CARTES);
+  // Refonte des tarifs (novembre 2026) : rythme sous le nom, prix, prix barré, total 3 mois
+  Object.assign(EN, {
+    lancement:'Launch prices, reserved for the first practices',
+    fTitre:'You implement, <em>or we prepare everything.</em>',
+    dureeK:'Choose how long you want monitoring', d3:'3 months', d6:'6 months', d6eco:'−10%',
+    s4c:'Every month', sem1:'Month 1', sem12:'Month 6',
+    e4p:'Apply it yourself, or we prepare the actions and you approve. Then we re-measure every month: same questions, same AIs, same method. You see, with figures, whether your visibility is improving.',
+    r1:'One time only', o1qui:'You implement the actions', o1prix:'€590 excl. VAT', o1barre:'€790', o1tot:'One-time payment, no commitment',
+    o1a:'30 questions × 6 AIs, several phrasings', o1b:'Score out of 20, competitors and AI sources', o1c:'Report and list of actions to take',
+    r3:'1 report per month', o3qui:'You implement the actions', oMois3:'/month', o3barre:'€390',
+    o3prix3:'€290 excl. VAT', o3prix6:'€260 excl. VAT', o3tot3:'i.e. €870 excl. VAT for 3 months', o3tot6:'i.e. €1,560 excl. VAT for 6 months', o3eco3:'−€300', o3eco6:'−€780',
+    o3a:'The full Diagnosis, repeated every month', o3b:'Your score’s progress, month after month', o3c:'Updated report and action list',
+    r2:'1 report per month', o2qui:'We prepare the actions, you approve', oMois2:'/month', o2barre:'€1,490',
+    o2prix3:'€990 excl. VAT', o2prix6:'€890 excl. VAT', o2tot3:'i.e. €2,970 excl. VAT for 3 months', o2tot6:'i.e. €5,340 excl. VAT for 6 months', o2eco3:'−€1,500', o2eco6:'−€3,600',
+    o2a:'Full Monitoring, every month', o2b:'Actions prepared every week, published with your approval', o2c:'Exclusivity: 1 practice per city and specialty',
+    fq7:'Do you publish on my behalf?', fa7:'No. Nothing goes online without your approval. We prepare, you approve. If you wish, you can give us limited (editor) access to save time.',
+    fq8:'How long before we see an effect?', fa8:'The first signs usually appear within 4 to 8 weeks, with more stable visibility in 3 to 6 months. These are rough estimates, not a guarantee.'
+  });
 
   const dyn = {
     fr: {
@@ -1046,13 +1127,13 @@ footer{background:var(--marine);color:#A9B3D6;padding:16px 0;border-top:0}
   const WA_OFFRES = {
     fr: {
       diag: `${quiFr}je souhaite le Diagnostic GEO Santé pour mon cabinet (590 € HT, un bilan complet).`,
-      suivi: `${quiFr}je souhaite le Suivi mensuel GEO Santé pour mon cabinet (290 € HT/mois).`,
-      accomp: `${quiFr}je souhaite l’Accompagnement hebdomadaire GEO Santé pour mon cabinet (990 € HT/mois). Ma ville et ma spécialité sont-elles encore disponibles ?`
+      suivi: d => `${quiFr}je souhaite le Suivi GEO Santé pour mon cabinet (${d === '6' ? '260 € HT/mois, 6 mois' : '290 € HT/mois, 3 mois'}).`,
+      accomp: d => `${quiFr}je souhaite l’Accompagnement GEO Santé pour mon cabinet (${d === '6' ? '890 € HT/mois, 6 mois' : '990 € HT/mois, 3 mois'}). Ma ville et ma spécialité sont-elles encore disponibles ?`
     },
     en: {
       diag: `${quiEn}I’d like the GEO Santé Diagnosis for my practice (€590 excl. VAT, one full report).`,
-      suivi: `${quiEn}I’d like the GEO Santé monthly Monitoring for my practice (€290 excl. VAT/month).`,
-      accomp: `${quiEn}I’d like the GEO Santé weekly Full support for my practice (€990 excl. VAT/month). Are my city and specialty still available?`
+      suivi: d => `${quiEn}I’d like GEO Santé Monitoring for my practice (${d === '6' ? '€260 excl. VAT/month, 6 months' : '€290 excl. VAT/month, 3 months'}).`,
+      accomp: d => `${quiEn}I’d like GEO Santé Full support for my practice (${d === '6' ? '€890 excl. VAT/month, 6 months' : '€990 excl. VAT/month, 3 months'}). Are my city and specialty still available?`
     }
   };
   const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -1083,12 +1164,31 @@ footer{background:var(--marine);color:#A9B3D6;padding:16px 0;border-top:0}
     document.getElementById('exExpli').innerHTML = d.expliHtml;
     const lb = document.getElementById('lang'); lb.textContent = d.langBtn; lb.setAttribute('aria-label', d.langLabel);
     document.title = d.title;
-    // chaque bouton d'offre envoie son propre message ; les autres gardent le message général
+    majWa(l);
+  }
+  // chaque bouton d'offre envoie son propre message (avec la durée choisie) ; les autres gardent le message général
+  let duree = '3';
+  function majWa(l){
     document.querySelectorAll('.js-wa').forEach(a => {
-      const txt = (a.dataset.wa && WA_OFFRES[l][a.dataset.wa]) || d.wa;
+      const v = a.dataset.wa && WA_OFFRES[l][a.dataset.wa];
+      const txt = (typeof v === 'function' ? v(duree) : v) || dyn[l].wa;
       a.href = `https://wa.me/${WA}?text=${encodeURIComponent(txt)}`;
     });
   }
+  // sélecteur de durée 3 / 6 mois
+  const zoneOffres = document.getElementById('offres');
+  const boutonsDuree = [...document.querySelectorAll('.duree-sw [role="radio"]')];
+  function choisirDuree(d, focus){
+    duree = d; zoneOffres.dataset.duree = d;
+    boutonsDuree.forEach(b => { const on = b.dataset.d === d; b.setAttribute('aria-checked', on); b.tabIndex = on ? 0 : -1; if (on && focus) b.focus(); });
+    majWa(lang);
+  }
+  boutonsDuree.forEach(b => {
+    b.addEventListener('click', () => choisirDuree(b.dataset.d));
+    b.addEventListener('keydown', e => {
+      if (['ArrowLeft','ArrowRight','ArrowUp','ArrowDown'].includes(e.key)) { e.preventDefault(); choisirDuree(duree === '3' ? '6' : '3', true); }
+    });
+  });
   appliquer(lang);
   document.getElementById('lang').addEventListener('click', () => {
     lang = lang === 'fr' ? 'en' : 'fr';
